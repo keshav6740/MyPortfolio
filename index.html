@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Portfolio | Cyber Dev</title>
+    <title>Terminal Portfolio | Keshav Agrawal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Roboto+Mono:wght@300;400;500&display=swap"
         rel="stylesheet">
@@ -31,296 +31,112 @@
 
         html, body {
             height: 100%;
-            overflow: hidden; /* Prevent scrollbars on body */
+            overflow: hidden;
         }
 
         body {
             background-color: var(--background);
             color: var(--text);
             font-family: var(--font-mono);
-            cursor: none; /* Hide default cursor */
+            cursor: none;
         }
 
         /* Cursor Trail */
-        .cursor-trail {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .cursor-dot {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            opacity: 0.7;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, opacity 0.3s, transform 0.3s; /* Added transform transition */
-        }
+        .cursor-trail { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; }
+        .cursor-dot { position: absolute; width: 5px; height: 5px; background-color: var(--primary); border-radius: 50%; opacity: 0.7; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, opacity 0.3s, transform 0.3s; }
 
         /* Noise and Scanline Effects */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/png;base64,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");
-            opacity: 0.03;
-            z-index: 1000;
-            pointer-events: none;
-        }
-
-        .scanline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.08); /* More subtle */
-            z-index: 999;
-            opacity: 0.75;
-            pointer-events: none;
-            animation: scanline 7s linear infinite; /* Slightly slower */
-        }
-
-        .glitch-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            z-index: 998;
-            pointer-events: none;
-            animation: glitch 12s infinite; /* Longer interval */
-            opacity: 0; /* Start hidden */
-        }
-
-        @keyframes scanline {
-            0% { top: -5%; }
-            100% { top: 105%; }
-        }
-
-        @keyframes glitch { /* Less frequent glitches */
-            0% { opacity: 0; }
-            0.5% { opacity: 0.2; background-color: rgba(255, 0, 255, 0.05); transform: translate(2px, 0); }
-            0.8% { opacity: 0; }
-            1.2% { opacity: 0.2; background-color: rgba(0, 255, 255, 0.05); transform: translate(-2px, 0); }
-            1.5% { opacity: 0; }
-            10% { opacity: 0; }
-            10.2% { opacity: 0.15; background-color: rgba(255, 0, 255, 0.05); transform: translate(1px, 0); }
-            10.5% { opacity: 0; }
-            100% { opacity: 0; }
-        }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/png;base64,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"); opacity: 0.03; z-index: 1000; pointer-events: none; }
+        .scanline { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: rgba(255, 255, 255, 0.08); z-index: 999; opacity: 0.75; pointer-events: none; animation: scanline 7s linear infinite; }
+        .glitch-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 998; pointer-events: none; animation: glitch 12s infinite; opacity: 0; }
+        @keyframes scanline { 0% { top: -5%; } 100% { top: 105%; } }
+        @keyframes glitch { 0% { opacity: 0; } 0.5% { opacity: 0.2; transform: translate(2px, 0); } 0.8% { opacity: 0; } 1.2% { opacity: 0.2; transform: translate(-2px, 0); } 1.5% { opacity: 0; } 10% { opacity: 0; } 10.2% { opacity: 0.15; transform: translate(1px, 0); } 10.5% { opacity: 0; } 100% { opacity: 0; } }
 
         /* Particles */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1; /* Behind terminal */
-        }
+        #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
 
         /* Terminal Window */
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .terminal-window {
-            width: 90%;
-            max-width: 950px; /* Slightly wider max */
-            height: 85vh; /* Slightly taller */
-            background-color: var(--terminal-bg);
-            border-radius: 8px;
-            box-shadow: 0 0 35px rgba(12, 255, 138, 0.25); /* Softer shadow */
-            overflow: hidden;
-            position: relative;
-            backdrop-filter: blur(6px); /* Slightly more blur */
-            border: 1px solid rgba(12, 255, 138, 0.25); /* Softer border */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .terminal-header {
-            background-color: rgba(0, 0, 0, 0.4); /* Darker header */
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-shrink: 0;
-        }
-
+        .main-container { display: flex; justify-content: center; align-items: center; height: 100vh; padding: 20px; position: relative; z-index: 10; }
+        .terminal-window { width: 90%; max-width: 950px; height: 85vh; background-color: var(--terminal-bg); border-radius: 8px; box-shadow: 0 0 35px rgba(12, 255, 138, 0.25); overflow: hidden; position: relative; backdrop-filter: blur(6px); border: 1px solid rgba(12, 255, 138, 0.25); display: flex; flex-direction: column; }
+        .terminal-header { background-color: rgba(0, 0, 0, 0.4); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); flex-shrink: 0; }
         .terminal-controls { display: flex; gap: 8px; }
         .control { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-        .close { background-color: #ff5f56; }
-        .minimize { background-color: #ffbd2e; }
-        .maximize { background-color: #27c93f; }
-
-        .terminal-title {
-            font-family: var(--font-mono);
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .terminal-body {
-            padding: 15px;
-            flex-grow: 1; /* Takes remaining space */
-            overflow-y: auto;
-            font-family: var(--font-mono);
-            font-size: 16px;
-            line-height: 1.6; /* Slightly increased line height */
-            color: var(--text);
-            scrollbar-width: thin; /* For Firefox */
-            scrollbar-color: var(--primary) rgba(0,0,0,0.3); /* For Firefox */
-        }
-        /* Custom Scrollbar for Webkit browsers */
-        .terminal-body::-webkit-scrollbar {
-            width: 8px;
-        }
-        .terminal-body::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.3);
-            border-radius: 4px;
-        }
-        .terminal-body::-webkit-scrollbar-thumb {
-            background-color: var(--primary);
-            border-radius: 4px;
-            border: 2px solid rgba(0,0,0,0.3);
-        }
-        .terminal-body::-webkit-scrollbar-thumb:hover {
-            background-color: var(--secondary);
-        }
-
+        .close { background-color: #ff5f56; } .minimize { background-color: #ffbd2e; } .maximize { background-color: #27c93f; }
+        .terminal-title { font-family: var(--font-mono); font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+        .terminal-body { padding: 15px; flex-grow: 1; overflow-y: auto; font-family: var(--font-mono); font-size: 16px; line-height: 1.6; color: var(--text); scrollbar-width: thin; scrollbar-color: var(--primary) rgba(0,0,0,0.3); }
+        .terminal-body::-webkit-scrollbar { width: 8px; } .terminal-body::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 4px; } .terminal-body::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 4px; border: 2px solid rgba(0,0,0,0.3); } .terminal-body::-webkit-scrollbar-thumb:hover { background-color: var(--secondary); }
 
         .boot-sequence { color: var(--text); margin-bottom: 20px; }
-        .boot-sequence p {
-            white-space: nowrap;
-            overflow: hidden;
-            visibility: hidden; /* Start hidden until animation runs */
-            margin-bottom: 4px; /* Slightly less margin */
-            min-height: 1.6em; /* Prevent layout shift */
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+        .boot-sequence p { margin-bottom: 2px; line-height: 1.3; min-height: 1.3em; }
 
         .command-history { margin-bottom: 15px; }
-
-        .command-line {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px; /* Ensure space below input line */
-            min-height: 1.6em; /* Prevent input jump */
-        }
-
+        .command-line { display: flex; align-items: center; margin-bottom: 10px; min-height: 1.6em; }
         .prompt { color: var(--primary); margin-right: 8px; font-weight: bold; white-space: nowrap; }
+        .command-input { background: transparent; border: none; color: var(--text); font-family: var(--font-mono); font-size: 16px; flex-grow: 1; caret-color: var(--primary); outline: none; line-height: 1.6; }
+        .command-input:disabled { opacity: 0.6; cursor: not-allowed; }
 
-        .command-input {
-            background: transparent;
-            border: none;
-            color: var(--text);
-            font-family: var(--font-mono);
-            font-size: 16px;
-            flex-grow: 1;
-            caret-color: var(--primary);
-            outline: none;
-            line-height: 1.6;
-        }
-
-        /* Welcome Message Styling */
+        /* Welcome Message */
+        .welcome-ascii { font-family: var(--font-terminal); /* Use VT323 for ASCII */ font-size: 1.1em; line-height: 1.1; color: var(--primary); margin-bottom: 15px; white-space: pre; display: block; }
         .welcome-message { margin-top: 10px !important; font-size: 18px; animation: pulse 2.5s infinite ease-in-out; }
         .highlight { color: var(--primary); font-weight: bold; }
         .command-suggestion { background-color: rgba(12, 255, 138, 0.15); color: var(--primary); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.01); } /* Subtle pulse */
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.01); } }
 
         /* Blinking Cursor */
-        .blinking-cursor { color: var(--primary); font-weight: bold; animation: blink 1s step-end infinite; margin-left: 2px; display: inline-block; /* Ensure it's always visible */ }
+        .blinking-cursor { color: var(--primary); font-weight: bold; animation: blink 1s step-end infinite; margin-left: 2px; display: inline-block; }
         @keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
 
-        /* Quick Command Buttons */
-        .quick-commands {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 10px 15px;
-            background-color: rgba(0, 0, 0, 0.4); /* Match header */
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            align-items: center;
-            flex-shrink: 0;
-        }
-
+        /* Quick Commands */
+        .quick-commands { display: flex; flex-wrap: wrap; gap: 10px; padding: 10px 15px; background-color: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.1); align-items: center; flex-shrink: 0; }
         .quick-commands-label { color: rgba(255, 255, 255, 0.7); margin-right: 10px; font-size: 14px; }
         .quick-command-btn { background-color: rgba(12, 255, 138, 0.1); color: var(--primary); border: 1px solid rgba(12, 255, 138, 0.3); border-radius: 4px; padding: 5px 10px; font-size: 14px; font-family: var(--font-mono); cursor: pointer; transition: all 0.2s ease-out; }
-        .quick-command-btn:hover { background-color: rgba(12, 255, 138, 0.25); transform: translateY(-1px); box-shadow: 0 3px 6px rgba(12, 255, 138, 0.15); border-color: rgba(12, 255, 138, 0.5); }
+        .quick-command-btn:hover:not(:disabled) { background-color: rgba(12, 255, 138, 0.25); transform: translateY(-1px); box-shadow: 0 3px 6px rgba(12, 255, 138, 0.15); border-color: rgba(12, 255, 138, 0.5); }
+        .quick-command-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; } /* Style for disabled quick buttons */
 
         /* Tutorial Overlay */
-        .tutorial-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(8px); display: none; /* Hidden by default */ animation: fadeIn 0.5s ease-out; }
+        .tutorial-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(8px); display: none; animation: fadeIn 0.5s ease-out; }
         .tutorial-content { background-color: var(--terminal-bg); border: 1px solid var(--primary); border-radius: 8px; padding: 35px; max-width: 550px; box-shadow: 0 0 40px rgba(12, 255, 138, 0.3); color: var(--text); animation: slideInUp 0.5s ease-out; }
         .tutorial-content h2 { color: var(--primary); margin-bottom: 20px; text-align: center; }
-        .tutorial-content ul { margin: 25px 0; padding-left: 25px; list-style-type: '>$ '; /* Custom list style */ }
+        .tutorial-content ul { margin: 25px 0; padding-left: 25px; list-style-type: '>$ '; }
         .tutorial-content li { margin-bottom: 12px; line-height: 1.6; }
         .tutorial-content code { background-color: rgba(12, 255, 138, 0.15); color: var(--primary); padding: 3px 7px; border-radius: 4px; font-family: var(--font-mono); font-weight: bold; }
         .tutorial-content button { background-color: var(--primary); color: var(--background); border: none; padding: 12px 25px; border-radius: 4px; font-family: var(--font-mono); cursor: pointer; margin-top: 15px; transition: all 0.2s ease-out; display: block; margin-left: auto; margin-right: auto; font-weight: bold; }
         .tutorial-content button:hover { background-color: rgba(12, 255, 138, 0.8); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(12, 255, 138, 0.2); }
 
+        /* Exit Modal */
+        .exit-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); display: flex; justify-content: center; align-items: center; z-index: 1001; backdrop-filter: blur(10px); display: none; animation: fadeIn 0.4s ease-out; }
+        .exit-modal-content { background-color: var(--terminal-bg); border: 1px solid var(--secondary); border-radius: 8px; padding: 40px; max-width: 450px; box-shadow: 0 0 50px rgba(255, 0, 255, 0.3); color: var(--text); animation: slideInUp 0.4s ease-out; text-align: center; }
+        .exit-modal-content h2 { color: var(--secondary); margin-bottom: 25px; }
+        .exit-modal-content p { margin-bottom: 30px; line-height: 1.6; }
+        .exit-modal-content button { background-color: var(--secondary); color: var(--background); border: none; padding: 12px 30px; border-radius: 4px; font-family: var(--font-mono); cursor: pointer; transition: all 0.2s ease-out; font-weight: bold; font-size: 1.1em; }
+        .exit-modal-content button:hover { background-color: rgba(255, 0, 255, 0.8); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(255, 0, 255, 0.25); }
+
+
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
         @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-
         /* Content Display Panel */
-        .content-display { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 950px; height: 85vh; background-color: rgba(20, 20, 30, 0.97); /* More opaque */ border-radius: 8px; box-shadow: 0 0 35px rgba(255, 0, 255, 0.25); z-index: 100; overflow: hidden; backdrop-filter: blur(12px); border: 1px solid rgba(255, 0, 255, 0.3); display: none; /* Hidden by default */ flex-direction: column; animation: fadeIn 0.3s ease-out; }
+        .content-display { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 950px; height: 85vh; background-color: rgba(20, 20, 30, 0.97); border-radius: 8px; box-shadow: 0 0 35px rgba(255, 0, 255, 0.25); z-index: 100; overflow: hidden; backdrop-filter: blur(12px); border: 1px solid rgba(255, 0, 255, 0.3); display: none; flex-direction: column; animation: fadeIn 0.3s ease-out; }
         .content-header { background-color: rgba(0, 0, 0, 0.5); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15); flex-shrink: 0; }
         .btn-close-content { background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; line-height: 1; padding: 0 5px; transition: color 0.2s ease; }
         .btn-close-content:hover { color: var(--secondary); }
         .content-title { margin: 0; flex-grow: 1; text-align: center; font-size: 1.3em; color: var(--primary);}
         .content-body { padding: 25px; flex-grow: 1; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--secondary) rgba(0,0,0,0.3); }
-        /* Custom Scrollbar for Webkit browsers */
-        .content-body::-webkit-scrollbar { width: 8px; }
-        .content-body::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 4px; }
-        .content-body::-webkit-scrollbar-thumb { background-color: var(--secondary); border-radius: 4px; border: 2px solid rgba(0,0,0,0.3); }
-        .content-body::-webkit-scrollbar-thumb:hover { background-color: var(--primary); }
+        .content-body::-webkit-scrollbar { width: 8px; } .content-body::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 4px; } .content-body::-webkit-scrollbar-thumb { background-color: var(--secondary); border-radius: 4px; border: 2px solid rgba(0,0,0,0.3); } .content-body::-webkit-scrollbar-thumb:hover { background-color: var(--primary); }
 
         /* Project Cards */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
-        .project-card {
-    background-color: rgba(30, 30, 40, 0.8);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease-out;
-    border: 1px solid rgba(12, 255, 138, 0.2);
-    width: 100%;
-    max-width: 400px;     /* increased max width */
-    height: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
+        .project-card { background-color: rgba(30, 30, 40, 0.8); border-radius: 12px; overflow: hidden; transition: all 0.3s ease-out; border: 1px solid rgba(12, 255, 138, 0.2); width: 100%; max-width: 400px; height: auto; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; }
         .project-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(12, 255, 138, 0.15); border-color: var(--primary); background-color: rgba(35, 35, 45, 0.85); }
-        .project-image { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.1); opacity: 0.9; transition: opacity 0.3s ease; }
+        .project-image { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.1); opacity: 0.9; transition: opacity 0.3s ease; flex-shrink: 0; }
         .project-card:hover .project-image { opacity: 1; }
-        .project-content { padding: 20px; }
+        .project-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .project-title { color: var(--primary); margin-bottom: 12px; font-size: 1.2em; }
-        .project-description { color: var(--text); font-size: 0.95em; margin-bottom: 18px; line-height: 1.6; }
+        .project-description { color: var(--text); font-size: 0.95em; margin-bottom: 18px; line-height: 1.6; flex-grow: 1; }
         .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
         .project-tag { background-color: rgba(12, 255, 138, 0.1); color: var(--primary); padding: 4px 9px; border-radius: 4px; font-size: 0.8em; }
-        .project-links { display: flex; gap: 15px; }
+        .project-links { display: flex; gap: 15px; margin-top: auto; }
         .project-link { color: var(--text); text-decoration: none; font-size: 0.9em; transition: color 0.2s ease; font-weight: 500; }
         .project-link:hover { color: var(--primary); text-decoration: underline; }
 
@@ -333,18 +149,18 @@
         .skill-item:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(12, 255, 138, 0.15); }
         .skill-name { color: var(--text); margin-bottom: 8px; position: relative; z-index: 1; font-weight: 500; }
         .skill-level { height: 7px; background-color: rgba(255, 255, 255, 0.1); border-radius: 3.5px; overflow: hidden; position: relative; z-index: 1; }
-        .skill-progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--tertiary)); border-radius: 3.5px; position: relative; width: 0; transition: width 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s; } /* Smoother transition */
+        .skill-progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--tertiary)); border-radius: 3.5px; position: relative; width: 0; transition: width 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s; }
         .skill-item::before { content: ''; position: absolute; top: 0; left: -50%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(12, 255, 138, 0.05)); transition: left 0.5s ease; z-index: 0; }
         .skill-item:hover::before { left: 100%; }
 
         /* About Section */
-        .about-container { margin-top: 20px; display: grid; grid-template-columns: 1fr 2.5fr; /* More space for text */ gap: 35px; align-items: start; }
+        .about-container { margin-top: 20px; display: grid; grid-template-columns: 1fr 2.5fr; gap: 35px; align-items: start; }
         .about-image { width: 100%; max-width: 280px; margin: 0 auto; border-radius: 8px; border: 1px solid rgba(12, 255, 138, 0.3); box-shadow: 0 0 25px rgba(12, 255, 138, 0.2); transition: transform 0.4s ease, box-shadow 0.4s ease; }
         .about-image:hover { transform: scale(1.04) rotate(1deg); box-shadow: 0 0 35px rgba(12, 255, 138, 0.35); }
         .about-content { color: var(--text); }
         .about-title { color: var(--primary); margin-bottom: 18px; font-size: 1.6em; }
         .about-text { line-height: 1.7; margin-bottom: 22px; }
-        .about-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Responsive columns */ gap: 18px; margin-top: 25px; }
+        .about-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin-top: 25px; }
         .stat-item { background-color: rgba(30, 30, 40, 0.8); border-radius: 6px; padding: 18px; text-align: center; border: 1px solid rgba(12, 255, 138, 0.15); transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; }
         .stat-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(12, 255, 138, 0.15); }
         .stat-value { color: var(--primary); font-size: 1.8em; font-weight: bold; margin-bottom: 5px; }
@@ -363,71 +179,76 @@
         .contact-value a:hover { color: var(--secondary); text-decoration: underline; }
         .contact-form input, .contact-form textarea { background-color: rgba(40, 40, 50, 0.9) !important; color: var(--text) !important; border: 1px solid rgba(12, 255, 138, 0.25) !important; padding: 12px; border-radius: 4px; }
         .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
-        .contact-form button { background-color: var(--primary); border: none; color: var(--background); padding: 12px 25px; transition: background-color 0.2s ease, transform 0.2s ease; border-radius: 4px; font-weight: bold; }
-        .contact-form button:hover { background-color: rgba(12, 255, 138, 0.85); transform: translateY(-2px); }
-        #form-status { transition: opacity 0.3s ease; }
+        .contact-form button { background-color: var(--primary); border: none; color: var(--background); padding: 12px 25px; transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .contact-form button:hover:not(:disabled) { background-color: rgba(12, 255, 138, 0.85); transform: translateY(-2px); }
+        .contact-form button:disabled { background-color: #555; border-color: #444; color: #aaa; cursor: not-allowed; opacity: 0.7; transform: none;}
+        #form-status { transition: opacity 0.3s ease; min-height: 1.2em;}
 
+        /* Matrix Canvas */
+        #matrix-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; display: block; }
+        .terminal-body.matrix-active { position: relative; padding: 0 !important; overflow: hidden !important; }
+        .terminal-body.matrix-active > *:not(#matrix-canvas):not(.command-response) { opacity: 0; pointer-events: none; }
+        .terminal-body.matrix-active .command-line { display: none; }
 
-        /* Matrix Canvas Styling */
-        #matrix-canvas {
-            position: absolute; /* Position over terminal body */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 5; /* Above text, below cursor? Test this */
-            display: block; /* Ensure it takes space */
-        }
-        /* Style the terminal body when matrix is active */
-        .terminal-body.matrix-active {
-            position: relative; /* Needed for absolute positioning of canvas */
-            padding: 0 !important; /* Remove padding to allow canvas full area */
-            overflow: hidden !important; /* Hide scrollbars during matrix */
-        }
-         /* Hide regular content when matrix is active */
-        .terminal-body.matrix-active > *:not(#matrix-canvas):not(.command-response) { /* Keep response visible */
-            /* display: none; */ /* Don't hide everything, just history/prompt */
-            opacity: 0; pointer-events: none; /* Fade out instead of hiding */
-        }
-         .terminal-body.matrix-active .command-line { display: none; } /* Hide the input line too */
-
-        /* Audio Visualizer */
-        .audio-visualizer { display: flex; align-items: flex-end; justify-content: center; height: 80px; /* Taller */ margin: 25px 0; }
-        .audio-bar { width: 6px; background-color: var(--primary); margin: 0 2px; border-radius: 3px; transition: height 0.06s ease-out, background-color 0.1s ease; height: 0; }
-        .audio-controls button { margin: 5px; background-color: var(--primary); border: none; color: var(--background); padding: 8px 15px; border-radius: 4px; transition: all 0.2s ease; font-weight: 500; }
-        .audio-controls button.secondary { background-color: var(--secondary); }
-        .audio-controls button:hover { opacity: 0.85; transform: translateY(-1px); }
-
-
-        /* Responsive Adjustments */
+        /* --- MOBILE OPTIMIZATIONS --- */
         @media (max-width: 768px) {
-            .terminal-window { width: 95%; height: 90vh; } /* Taller on mobile */
-            .content-display { width: 95%; height: 90vh; }
-            .terminal-body, .command-input { font-size: 14px; }
-            .content-body { padding: 15px; }
-            .quick-commands { padding: 8px 10px; gap: 8px; }
-            .quick-commands-label { margin-right: 5px; font-size: 13px; }
-            .quick-command-btn { padding: 4px 8px; font-size: 13px; }
-            .about-container { grid-template-columns: 1fr; }
-            .about-image { max-width: 200px; margin-bottom: 20px; }
-            .project-grid { grid-template-columns: 1fr; gap: 20px; }
-            .skill-grid { grid-template-columns: 1fr; gap: 12px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-            .tutorial-content { max-width: 90%; padding: 25px; }
-            .boot-sequence p, .command-line, .command-input { line-height: 1.5; }
+            html, body { cursor: default; }
+            .cursor-trail { display: none; }
+            .main-container { padding: 10px; align-items: flex-start; padding-top: 20px; }
+            .terminal-window { width: 98%; height: 90vh; max-width: none; box-shadow: 0 0 20px rgba(12, 255, 138, 0.2); }
+            .terminal-header { padding: 8px 12px; } .terminal-title { font-size: 13px; }
+            .terminal-body { font-size: 14px; line-height: 1.5; padding: 10px; }
+            .command-input { font-size: 14px; line-height: 1.5; } .prompt { font-size: 14px; }
+            .boot-sequence p { line-height: 1.4; margin-bottom: 1px;}
+            .welcome-ascii { font-size: 1em; } /* Adjust ASCII size */
+
+            .quick-commands { padding: 10px 12px; gap: 8px; flex-direction: column; align-items: stretch; }
+            .quick-commands-label { margin-right: 0; margin-bottom: 5px; text-align: center; font-size: 13px; }
+            .quick-command-btn { padding: 8px 10px; font-size: 14px; text-align: center; }
+
+            .content-display { width: 98%; height: 90vh; max-width: none; }
+            .content-body { padding: 15px; font-size: 14px; } .content-title { font-size: 1.2em; }
+
+            .project-grid { grid-template-columns: 1fr; gap: 20px; } .project-card { max-width: none; }
+            .project-image { height: 150px; } .project-content { padding: 15px; } .project-title { font-size: 1.1em; }
+            .project-description { font-size: 0.9em; } .project-tag { font-size: 0.75em; } .project-link { font-size: 0.85em; }
+
+            .skill-grid { grid-template-columns: 1fr; gap: 12px; } .skill-item { padding: 10px 12px; }
+            .skill-name { font-size: 0.95em; } .skill-category-title { font-size: 1.3em; }
+
+            .about-container { grid-template-columns: 1fr; gap: 20px; } .about-image { max-width: 200px; margin-bottom: 20px; }
+            .about-content { text-align: left; } .about-title { font-size: 1.4em; } .about-text { font-size: 0.95em; }
+            .about-stats { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px;}
+            .stat-item { padding: 15px; } .stat-value { font-size: 1.6em; } .stat-label { font-size: 0.85em; }
+
+            .contact-grid { grid-template-columns: 1fr; gap: 15px; } .contact-item { padding: 20px; }
+            .contact-icon { font-size: 2em; } .contact-label { font-size: 0.95em; } .contact-value { font-size: 1em; }
+            .contact-form input, .contact-form textarea { padding: 10px; font-size: 14px;}
+            .contact-form button { padding: 10px 20px; font-size: 14px; }
+
+            .tutorial-content { max-width: 90%; padding: 25px; } .tutorial-content h2 { font-size: 1.4em; }
+            .tutorial-content ul { margin: 20px 0; padding-left: 20px; } .tutorial-content li { font-size: 0.95em; margin-bottom: 10px; }
+            .tutorial-content button { padding: 10px 20px; font-size: 0.95em; }
+
+            .exit-modal-content { max-width: 90%; padding: 30px; } /* Adjust exit modal padding */
+            .exit-modal-content h2 { font-size: 1.5em;}
+            .exit-modal-content button { font-size: 1em; padding: 10px 25px;}
         }
+
         @media (max-width: 480px) {
-             .terminal-body, .command-input { font-size: 13px; }
-             .quick-commands { flex-direction: column; align-items: stretch; } /* Stack buttons */
-             .quick-commands-label { margin-bottom: 8px; text-align: center; }
-             .quick-command-btn { text-align: center; }
-             .welcome-message { font-size: 16px; }
-             .stat-value { font-size: 1.6em; }
-             .project-grid { gap: 15px; }
-             .skill-grid { gap: 10px; }
-             .contact-grid { gap: 15px; }
-             .audio-visualizer { height: 60px; }
-             .audio-bar { width: 4px; }
+            .terminal-body, .command-input, .prompt { font-size: 13px; line-height: 1.4; }
+            .terminal-header { padding: 6px 10px; } .terminal-title { font-size: 12px; }
+            .welcome-ascii { font-size: 0.9em; } /* Further adjust ASCII size */
+            .welcome-message { font-size: 14px; }
+            .quick-command-btn { font-size: 13px; padding: 7px 8px; }
+            .content-body { padding: 10px; font-size: 13px;} .content-title { font-size: 1.1em; }
+            .project-image { height: 120px; } .project-title { font-size: 1em; } .project-description { font-size: 0.85em; }
+            .skill-item { padding: 8px 10px; } .skill-name { font-size: 0.9em; }
+            .about-title { font-size: 1.3em; } .about-text { font-size: 0.9em; }
+            .stat-value { font-size: 1.5em; } .stat-label { font-size: 0.8em; }
+            .contact-item { padding: 15px; } .contact-icon { font-size: 1.8em; } .contact-label { font-size: 0.9em; } .contact-value { font-size: 0.95em; }
+            .tutorial-content { padding: 20px; } .tutorial-content h2 { font-size: 1.3em; } .tutorial-content li { font-size: 0.9em; }
+            .exit-modal-content { padding: 25px; }
         }
 
     </style>
@@ -446,21 +267,20 @@
                     <span class="control minimize"></span>
                     <span class="control maximize"></span>
                 </div>
-                <div class="terminal-title">keshav@portfolio:~</div> <!-- Personalized title -->
+                <div class="terminal-title">keshav@portfolio:~</div>
             </div>
             <div class="terminal-body" id="terminal">
                 <div class="boot-sequence">
-                    <!-- Boot sequence animated via JS -->
+                    <!-- Boot sequence -->
                 </div>
                 <div class="command-history" id="commandHistory"></div>
                 <div class="command-line">
                     <span class="prompt">visitor@portfolio:~$</span>
-                    <input type="text" id="commandInput" class="command-input" autofocus autocomplete="off" spellcheck="false">
+                    <input type="text" id="commandInput" class="command-input" autocomplete="off" spellcheck="false" disabled>
                     <span class="blinking-cursor">|</span>
                 </div>
             </div>
 
-            <!-- Quick Command Buttons -->
             <div class="quick-commands">
                 <div class="quick-commands-label">Quick Nav:</div>
                 <button class="quick-command-btn" data-command="about">about</button>
@@ -468,8 +288,10 @@
                 <button class="quick-command-btn" data-command="projects">projects</button>
                 <button class="quick-command-btn" data-command="contact">contact</button>
                 <button class="quick-command-btn" data-command="matrix">matrix</button>
+                <button class="quick-command-btn" data-command="theme">theme</button>
                 <button class="quick-command-btn" data-command="help">help</button>
                 <button class="quick-command-btn" data-command="clear">clear</button>
+                <button class="quick-command-btn" data-command="exit">exit</button>
             </div>
         </div>
 
@@ -483,7 +305,7 @@
                     <li>Use <code>help</code> anytime to see the full command list.</li>
                     <li>Try <code>matrix</code> for a visual effect!</li>
                     <li><code>clear</code> will wipe the screen history.</li>
-                    <li>Use the <span style="font-weight:bold;">Arrow Keys</span> (Up/Down) to navigate command history.</li>
+                    <li>Use <span style="font-weight:bold;">Arrow Keys</span> (Up/Down) to navigate command history.</li>
                     <li>Use <span style="font-weight:bold;">Tab</span> for basic command auto-completion.</li>
                     <li>Alternatively, use the quick navigation buttons below the terminal.</li>
                 </ul>
@@ -492,13 +314,22 @@
         </div>
 
         <!-- Content Display Panel -->
-        <div id="content-display" class="content-display"> <!-- Removed d-none, handled by JS -->
+        <div id="content-display" class="content-display">
             <div class="content-header">
                 <h3 id="content-title">Content</h3>
                  <button id="closeContent" class="btn-close-content" aria-label="Close">×</button>
             </div>
             <div id="content-body" class="content-body">
-                <!-- Dynamic content goes here -->
+                <!-- Dynamic content -->
+            </div>
+        </div>
+
+         <!-- Exit Modal -->
+         <div id="exit-modal" class="exit-modal-overlay">
+            <div class="exit-modal-content">
+                <h2>Session Terminated</h2>
+                <p>Connection closed. Restart the interface to begin a new session.</p>
+                <button id="restart-session-btn">Start New Session</button>
             </div>
         </div>
     </div>
@@ -512,21 +343,19 @@
         let commandHistoryIndex = -1;
         let inactivityTimer;
         let matrixInterval = null;
-        let audioContext = null;
-        let analyser = null;
-        let audioSource = null;
-        let isVisualizerPlaying = false;
-        let bootSequenceTimeout = null;
-        let bootComplete = false; // Flag to track boot sequence completion
+        // Removed audio variables
+        let bootComplete = false;
 
         // --- DOM Element References ---
         let terminalBody, commandHistory, commandInput, blinkingCursor, quickCommandBtns;
         let contentDisplay, contentTitle, contentBody, closeContent;
         let tutorialOverlay, tutorialClose;
         let bootSequenceContainer;
+        let exitModal, restartSessionBtn; // Added exit modal refs
 
         // --- Constants ---
-        const COMMANDS = ['help', 'about', 'skills', 'projects', 'contact', 'resume', 'clear', 'exit', 'matrix', 'visualizer', 'theme']; // Updated list
+        // Removed 'visualizer' command
+        const COMMANDS = ['help', 'about', 'skills', 'projects', 'contact', 'resume', 'clear', 'exit', 'matrix', 'theme'];
         const BOOT_MESSAGES = [
             "BIOS Check...................... <span style='color: var(--primary)'>OK</span>",
             "Initializing Kernel v5.1...... <span style='color: var(--primary)'>DONE</span>",
@@ -538,20 +367,22 @@
             "Loading User Interface......... <span style='color: var(--primary)'>READY</span>",
             ""
         ];
-        const WELCOME_ASCII = [ // Using preformatted block for easier management
-            `██╗     ███████╗███████╗ ██████╗ ███████╗███████╗`,
-            `██║     ██╔════╝██╔════╝██╔════╝ ██╔════╝██╔════╝`,
-            `██║     ███████╗███████╗██║  ███╗███████╗███████╗`,
-            `██║     ╚════██║╚════██║██║   ██║╚════██║╚════██║`,
-            `███████╗███████║███████║╚██████╔╝███████║███████║`,
-            `╚══════╝╚══════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝`,
-        ].join('\n'); // Join with newline for <pre> tag
+        // --- New ASCII Art ---
+        const WELCOME_ASCII = [
+          `   #######################################`,
+          `   #   Welcome to the Portfolio Terminal #`,
+          `   #######################################`,
+          `   #  User: Visitor                      #`,
+          `   #  Host: keshav.portfolio.dev         #`,
+          `   #  Version: 1.4                       #`,
+          `   #######################################`
+        ].join('\n');
 
-        const WELCOME_TEXT = `>> Portfolio Terminal Interface v1.3 Initialized <<\n \nType <span class="command-suggestion">help</span> for a list of commands.`;
+        const WELCOME_TEXT = `>> System Online. Type <span class="command-suggestion">help</span> for commands.`;
 
         // --- Initialization ---
         document.addEventListener('DOMContentLoaded', function () {
-            console.log("DOM fully loaded and parsed.");
+            console.log("DOM loaded.");
             // Assign DOM elements
             terminalBody = document.getElementById('terminal');
             commandHistory = document.getElementById('commandHistory');
@@ -565,14 +396,17 @@
             tutorialOverlay = document.getElementById('tutorial-overlay');
             tutorialClose = document.getElementById('tutorial-close');
             bootSequenceContainer = document.querySelector('.boot-sequence');
+            exitModal = document.getElementById('exit-modal'); // Assign exit modal
+            restartSessionBtn = document.getElementById('restart-session-btn'); // Assign restart button
 
-            // Basic check for essential elements
-            if (!terminalBody || !commandInput || !commandHistory || !contentDisplay || !tutorialOverlay) {
+            if (!terminalBody || !commandInput || !commandHistory || !contentDisplay || !tutorialOverlay || !exitModal || !restartSessionBtn) {
                 console.error("FATAL: Missing essential DOM elements!");
-                document.body.innerHTML = "<p style='color:red; text-align:center; padding: 50px;'>Interface load error. Essential elements missing.</p>";
-                return; // Stop execution
+                document.body.innerHTML = "<p style='color:red; text-align:center; padding: 50px;'>Interface load error.</p>";
+                return;
             }
             console.log("Essential DOM elements found.");
+
+            commandInput.disabled = true; // Ensure input starts disabled
 
             initializeParticles();
             setupCommandInputListeners();
@@ -580,1001 +414,206 @@
             setupFocusManagement();
             setupCloseContentButton();
             setupTutorialBehavior();
+            setupExitModalBehavior(); // Setup exit modal button
             startBootSequence();
             initializeCursorTrail();
             resetInactivityTimer();
         });
 
-        // --- Effect Initializations --- (initializeParticles, initializeCursorTrail as before)
-         function initializeParticles() {
-            if (typeof particlesJS === 'undefined') {
-                console.warn('particlesJS library not found. Skipping particle effect.');
-                return;
-            }
-             try {
-                particlesJS('particles-js', { /* Particles.js config */
-                    "particles": { "number": { "value": 70, "density": { "enable": true, "value_area": 1000 } }, "color": { "value": getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() }, "shape": { "type": "circle" }, "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 0.9, "opacity_min": 0.1, "sync": false } }, "size": { "value": 2.5, "random": true, "anim": { "enable": true, "speed": 2.5, "size_min": 0.2, "sync": false } }, "line_linked": { "enable": true, "distance": 140, "color": getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(), "opacity": 0.25, "width": 1 }, "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 150, "line_linked": { "opacity": 0.6 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true
-                 });
-                 console.log("ParticlesJS initialized.");
-             } catch (error) {
-                 console.error("Error initializing ParticlesJS:", error);
-             }
+        // --- Effect Initializations ---
+         function initializeParticles() { /* ... (same as before) ... */
+            if (typeof particlesJS === 'undefined') { console.warn('particlesJS not found.'); return; } try { particlesJS('particles-js', { "particles": { "number": { "value": 70, "density": { "enable": true, "value_area": 1000 } }, "color": { "value": getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() }, "shape": { "type": "circle" }, "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 0.9, "opacity_min": 0.1, "sync": false } }, "size": { "value": 2.5, "random": true, "anim": { "enable": true, "speed": 2.5, "size_min": 0.2, "sync": false } }, "line_linked": { "enable": true, "distance": 140, "color": getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(), "opacity": 0.25, "width": 1 }, "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 150, "line_linked": { "opacity": 0.6 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true }); } catch (error) { console.error("Error initializing ParticlesJS:", error); }
         }
-
-         function initializeCursorTrail() {
-            const trailContainer = document.getElementById('cursor-trail');
-            if (!trailContainer) return;
-            let dots = [];
-            const maxDots = 15;
-
-            document.addEventListener('mousemove', function (e) {
-                if (dots.length >= maxDots) {
-                    const oldDot = dots.shift();
-                     if (trailContainer.contains(oldDot)) trailContainer.removeChild(oldDot);
-                }
-                const dot = document.createElement('div');
-                dot.className = 'cursor-dot';
-                dot.style.left = e.pageX + 'px';
-                dot.style.top = e.pageY + 'px';
-                const size = Math.random() * 3 + 2;
-                dot.style.width = size + 'px'; dot.style.height = size + 'px';
-                dot.style.backgroundColor = `hsl(${Math.random() * 30 + 105}, 100%, 70%)`;
-                trailContainer.appendChild(dot);
-                dots.push(dot);
-                setTimeout(() => {
-                    dot.style.opacity = '0'; dot.style.transform = 'translate(-50%, -50%) scale(0.3)';
-                    setTimeout(() => {
-                         const index = dots.indexOf(dot);
-                         if (index > -1 && trailContainer.contains(dot)) {
-                              trailContainer.removeChild(dot); dots.splice(index, 1);
-                         }
-                    }, 300);
-                }, 80);
-            });
+         function initializeCursorTrail() { /* ... (same as before) ... */
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return; const trailContainer = document.getElementById('cursor-trail'); if (!trailContainer) return; let dots = []; const maxDots = 15; document.addEventListener('mousemove', function (e) { if (dots.length >= maxDots) { const oldDot = dots.shift(); if (trailContainer.contains(oldDot)) trailContainer.removeChild(oldDot); } const dot = document.createElement('div'); dot.className = 'cursor-dot'; dot.style.left = e.pageX + 'px'; dot.style.top = e.pageY + 'px'; const size = Math.random() * 3 + 2; dot.style.width = size + 'px'; dot.style.height = size + 'px'; dot.style.backgroundColor = `hsl(${Math.random() * 30 + 105}, 100%, 70%)`; trailContainer.appendChild(dot); dots.push(dot); setTimeout(() => { dot.style.opacity = '0'; dot.style.transform = 'translate(-50%, -50%) scale(0.3)'; setTimeout(() => { const index = dots.indexOf(dot); if (index > -1 && trailContainer.contains(dot)) { trailContainer.removeChild(dot); dots.splice(index, 1); } }, 300); }, 80); });
         }
-
 
         // --- Boot Sequence & Welcome ---
-        function startBootSequence() {
-            if (!bootSequenceContainer) return;
-            console.log("Starting boot sequence...");
-            bootSequenceContainer.innerHTML = ''; // Clear previous
-            bootComplete = false; // Reset flag
-            let delay = 100;
-            let typingSpeed = 0.02;
-            let totalDuration = delay;
-
-            BOOT_MESSAGES.forEach((line, index) => {
-                 const textContent = line.replace(/<[^>]*>/g, ''); // Content for length calculation
-                 const lineDuration = textContent.length * (typingSpeed * 1000) + (Math.random() * 120 + 60); // Estimate duration
-                 setTimeout(() => {
-                    const p = document.createElement('p');
-                    p.innerHTML = line;
-                    p.style.visibility = 'visible';
-                    p.style.width = '0';
-                    p.style.animation = `typing ${textContent.length * typingSpeed}s steps(${textContent.length}, end) forwards`;
-                    bootSequenceContainer.appendChild(p);
-                    scrollToBottom(terminalBody);
-
-                    if (index === BOOT_MESSAGES.length - 1) {
-                        console.log("Boot messages finished, scheduling welcome.");
-                        showWelcomeMessages(totalDuration + lineDuration + 150); // Show slightly after last line animates
-                    }
-                }, totalDuration);
-                 totalDuration += lineDuration;
-            });
-            bootSequenceTimeout = totalDuration + 150; // Estimate when boot finishes for tutorial check
+        function startBootSequence() { /* ... (same fast version as before) ... */
+            if (!bootSequenceContainer) return; console.log("Starting fast boot sequence..."); bootSequenceContainer.innerHTML = ''; bootComplete = false; let currentDelay = 0; const lineDelay = 40; BOOT_MESSAGES.forEach((line, index) => { setTimeout(() => { const p = document.createElement('p'); p.innerHTML = line; bootSequenceContainer.appendChild(p); scrollToBottom(terminalBody); if (index === BOOT_MESSAGES.length - 1) { showWelcomeMessages(lineDelay + 50); } }, currentDelay); currentDelay += lineDelay; });
         }
-
-        function showWelcomeMessages(startDelay) {
-             console.log("Showing welcome messages at delay:", startDelay);
-             setTimeout(() => {
-                 // Add ASCII Art using <pre>
-                 const pre = document.createElement('pre');
-                 pre.style.fontFamily = 'var(--font-mono)';
-                 pre.style.fontSize = '1em';
-                 pre.style.lineHeight = '1.1';
-                 pre.style.color = 'var(--primary)';
-                 pre.style.marginBottom = '15px';
-                 pre.style.visibility = 'hidden'; // Hide initially
-                 pre.textContent = WELCOME_ASCII;
-                 bootSequenceContainer.appendChild(pre);
-
-                 // Add the final text line
-                 const helpLine = document.createElement('p');
-                 helpLine.className = 'welcome-message'; // For pulse animation
-                 helpLine.innerHTML = WELCOME_TEXT;
-                 helpLine.style.visibility = 'hidden';
-                 bootSequenceContainer.appendChild(helpLine);
-
-                 // Animate them appearing (simple fade-in)
-                 setTimeout(() => {
-                     pre.style.visibility = 'visible';
-                     pre.style.animation = 'fadeIn 0.5s ease-out forwards';
-                     helpLine.style.visibility = 'visible';
-                     helpLine.style.animation = 'fadeIn 0.5s 0.2s ease-out forwards'; // Stagger help line slightly
-                     scrollToBottom(terminalBody);
-
-                     console.log("Welcome message displayed. Setting bootComplete flag.");
-                     bootComplete = true;
-                     checkAndShowTutorial(); // Check tutorial *after* welcome is fully shown
-                 }, 100); // Short delay before fading in
-
-             }, startDelay);
+        function showWelcomeMessages(startDelay) { /* ... (same version enabling input & tutorial check at the end) ... */
+             console.log("Showing welcome messages at delay:", startDelay); setTimeout(() => { const pre = document.createElement('pre'); pre.className = 'welcome-ascii'; pre.style.opacity = '0'; pre.textContent = WELCOME_ASCII; bootSequenceContainer.appendChild(pre); const helpLine = document.createElement('p'); helpLine.className = 'welcome-message'; helpLine.innerHTML = WELCOME_TEXT; helpLine.style.opacity = '0'; bootSequenceContainer.appendChild(helpLine); setTimeout(() => { pre.style.transition = 'opacity 0.5s ease-out'; pre.style.opacity = '1'; setTimeout(() => { helpLine.style.transition = 'opacity 0.5s ease-out'; helpLine.style.opacity = '1'; scrollToBottom(terminalBody); console.log("Welcome message displayed. Enabling input & checking tutorial."); commandInput.disabled = false; commandInput.focus(); bootComplete = true; checkAndShowTutorial(); }, 150); }, 50); }, startDelay);
         }
-
 
         // --- Tutorial ---
-         function setupTutorialBehavior() {
-             if (!tutorialOverlay || !tutorialClose) return;
-             console.log("Setting up tutorial behavior.");
-             tutorialClose.addEventListener('click', () => {
-                console.log("Tutorial close button clicked.");
-                 tutorialOverlay.style.animation = 'fadeOut 0.3s ease-out forwards';
-                  setTimeout(() => {
-                      tutorialOverlay.style.display = 'none';
-                      tutorialOverlay.style.animation = ''; // Reset for next time? (unlikely needed)
-                      commandInput.focus();
-                      console.log("Tutorial closed and input focused.");
-                  }, 300);
-             });
+         function setupTutorialBehavior() { /* ... (same as before) ... */
+             if (!tutorialOverlay || !tutorialClose) return; tutorialClose.addEventListener('click', () => { tutorialOverlay.style.animation = 'fadeOut 0.3s ease-out forwards'; setTimeout(() => { tutorialOverlay.style.display = 'none'; tutorialOverlay.style.animation = ''; commandInput.focus(); }, 300); });
+         }
+         function checkAndShowTutorial() { /* ... (same as before, called after boot) ... */
+             if (!tutorialOverlay) return; const hasVisitedBefore = localStorage.getItem('hasVisitedTerminalPortfolio_v1.1'); console.log("Checking tutorial status. Visited:", hasVisitedBefore); if (!hasVisitedBefore) { console.log("First visit. Showing tutorial."); tutorialOverlay.style.display = 'flex'; tutorialOverlay.style.opacity = '0'; setTimeout(() => { tutorialOverlay.style.animation = 'fadeIn 0.5s ease-out forwards'; }, 100); localStorage.setItem('hasVisitedTerminalPortfolio_v1.1', 'true'); } else { console.log("Returning visitor. Tutorial skipped."); tutorialOverlay.style.display = 'none'; }
          }
 
-         function checkAndShowTutorial() {
-             if (!tutorialOverlay || !bootComplete) { // Only show if boot is done
-                 console.log("Tutorial check skipped (boot not complete or overlay missing).");
-                 return;
-             }
-             const hasVisitedBefore = localStorage.getItem('hasVisitedTerminalPortfolio_v1.1'); // Incremented version key
-             console.log("Checking tutorial status. Has visited:", hasVisitedBefore);
-
-             if (!hasVisitedBefore) {
-                 console.log("First visit detected. Showing tutorial.");
-                 // Ensure overlay is ready before showing
-                 tutorialOverlay.style.display = 'flex'; // Make it visible for animation
-                 tutorialOverlay.style.opacity = '0'; // Start transparent
-                 tutorialOverlay.style.animation = 'fadeIn 0.5s 0.1s ease-out forwards'; // Delay slightly
-                 localStorage.setItem('hasVisitedTerminalPortfolio_v1.1', 'true');
-             } else {
-                 console.log("Returning visitor. Tutorial skipped.");
-                 tutorialOverlay.style.display = 'none';
-             }
+        // --- Exit Modal ---
+        function setupExitModalBehavior() {
+             if (!restartSessionBtn) return;
+             restartSessionBtn.addEventListener('click', () => {
+                 console.log("Restarting session...");
+                 location.reload();
+             });
          }
 
         // --- Core Terminal Interaction ---
-        function setupCommandInputListeners() {
-            if (!commandInput || !blinkingCursor) return;
-            console.log("Setting up command input listeners.");
-            commandInput.addEventListener('keydown', handleCommandInput);
-            commandInput.addEventListener('focus', () => { blinkingCursor.style.opacity = '0'; });
-            commandInput.addEventListener('blur', () => { blinkingCursor.style.opacity = '1'; });
+        function setupCommandInputListeners() { /* ... (same as before) ... */
+            if (!commandInput || !blinkingCursor) return; commandInput.addEventListener('keydown', handleCommandInput); commandInput.addEventListener('focus', () => { if(blinkingCursor) blinkingCursor.style.opacity = '0'; }); commandInput.addEventListener('blur', () => { if(blinkingCursor && !commandInput.disabled) blinkingCursor.style.opacity = '1'; });
         }
-
-        function setupQuickCommands() {
-            if (!quickCommandBtns || quickCommandBtns.length === 0) return;
-            console.log("Setting up quick command buttons.");
-            quickCommandBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const command = this.getAttribute('data-command');
-                     console.log(`Quick command button clicked: ${command}`);
-                    if (command) {
-                         commandInput.value = command;
-                         // Create a synthetic event object that mimics a keyboard event
-                         const fakeEvent = { key: 'Enter', preventDefault: () => {} };
-                         handleCommandInput(fakeEvent);
-                    }
-                });
-            });
+        function setupQuickCommands() { /* ... (same as before, checks if input disabled) ... */
+            if (!quickCommandBtns || quickCommandBtns.length === 0) return; quickCommandBtns.forEach(btn => { btn.addEventListener('click', function () { if (commandInput.disabled) return; const command = this.getAttribute('data-command'); if (command) { commandInput.value = command; const fakeEvent = { key: 'Enter', preventDefault: () => {} }; handleCommandInput(fakeEvent); } }); });
         }
-
-        function setupFocusManagement() {
-             if (!terminalBody || !commandInput) return;
-             console.log("Setting up focus management.");
-             // Click on terminal window background focuses input
-             terminalBody.parentElement.addEventListener('click', (e) => {
-                 if (e.target === terminalBody.parentElement || e.target === terminalBody) {
-                     if (!window.getSelection().toString()) { // Don't focus if user is selecting text
-                        commandInput.focus();
-                     }
-                 }
-             });
-             // Click on command history area also focuses input
-             commandHistory.addEventListener('click', (e) => {
-                 if (e.target === commandHistory && !window.getSelection().toString()) {
-                     commandInput.focus();
-                 }
-             });
-             commandInput.focus(); // Initial focus
+        function setupFocusManagement() { /* ... (same as before, checks if input disabled) ... */
+             if (!terminalBody || !commandInput) return; terminalBody.parentElement.addEventListener('click', (e) => { if (!commandInput.disabled && (e.target === terminalBody.parentElement || e.target === terminalBody)) { if (!window.getSelection().toString()) { commandInput.focus(); } } }); commandHistory.addEventListener('click', (e) => { if (!commandInput.disabled && e.target === commandHistory && !window.getSelection().toString()) { commandInput.focus(); } });
         }
-
-        function handleCommandInput(e) {
-            // Log all key presses if needed for deep debugging: console.log(`Keydown: ${e.key}`);
-            if (e.key === 'Enter') {
-                console.log("Enter key detected.");
-                e.preventDefault(); // Prevent default form submission/newline
-                const command = commandInput.value.trim().toLowerCase();
-                console.log(`Command entered: '${command}'`);
-                commandInput.value = ''; // Clear input field
-
-                if (command !== '') {
-                     console.log("Processing non-empty command...");
-                     if (commandHistoryArray[commandHistoryArray.length - 1] !== command) { // Avoid duplicate history entries
-                        commandHistoryArray.push(command);
-                     }
-                     commandHistoryIndex = -1; // Reset history navigation index
-
-                     displayCommand(command); // Show the command itself
-
-                     console.log("Calling processCommand...");
-                     try {
-                         processCommand(command); // Execute the command logic
-                         console.log("processCommand finished successfully.");
-                     } catch (error) {
-                         console.error("!!! Error during processCommand execution:", error);
-                         displayResponse(`<p style="color: var(--secondary);">Runtime Error: Command '${command}' failed. Check console (F12).</p>`);
-                     }
-                     playTypingSound(0.06); // Slightly louder sound for command execution
-                 } else {
-                     // Handle Enter key pressed on empty input - just show a new prompt line
-                     console.log("Empty command entered, displaying new prompt.");
-                     displayCommand(""); // Adds the visual prompt line
-                 }
-                 scrollToBottom(terminalBody);
-                 resetInactivityTimer(); // Reset inactivity timer on interaction
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                navigateCommandHistory(1); // Move up (older commands)
-            } else if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                navigateCommandHistory(-1); // Move down (newer commands or clear)
-            } else if (e.key === 'Tab') {
-                 e.preventDefault();
-                 handleTabCompletion();
-            }
-            // Reset inactivity on any relevant key input
-             if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Delete') {
-                 resetInactivityTimer();
-             }
+        function handleCommandInput(e) { /* ... (same as before, checks if input disabled) ... */
+             if (commandInput.disabled) return; if (e.key === 'Enter') { e.preventDefault(); const command = commandInput.value.trim().toLowerCase(); commandInput.value = ''; if (command !== '') { if (commandHistoryArray[commandHistoryArray.length - 1] !== command) { commandHistoryArray.push(command); } commandHistoryIndex = -1; displayCommand(command); try { processCommand(command); } catch (error) { console.error("Error during processCommand:", error); displayResponse(`<p style="color: var(--secondary);">Runtime Error.</p>`); } playTypingSound(0.06); } else { displayCommand(""); } scrollToBottom(terminalBody); resetInactivityTimer(); } else if (e.key === 'ArrowUp') { e.preventDefault(); navigateCommandHistory(1); } else if (e.key === 'ArrowDown') { e.preventDefault(); navigateCommandHistory(-1); } else if (e.key === 'Tab') { e.preventDefault(); handleTabCompletion(); } if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Delete') { resetInactivityTimer(); }
         }
-
-        function navigateCommandHistory(direction) {
-            if (commandHistoryArray.length === 0) return;
-            const newIndex = commandHistoryIndex + direction;
-            // Clamp index within valid range [-1, history.length - 1]
-            if (newIndex >= -1 && newIndex < commandHistoryArray.length) {
-                commandHistoryIndex = newIndex;
-                const historyValue = (commandHistoryIndex === -1)
-                    ? '' // Back to empty if index is -1
-                    : commandHistoryArray[commandHistoryArray.length - 1 - commandHistoryIndex];
-                commandInput.value = historyValue;
-                // Move cursor to the end of the input
-                commandInput.setSelectionRange(commandInput.value.length, commandInput.value.length);
-                console.log(`Navigated history (dir=${direction}), index=${commandHistoryIndex}, value='${historyValue}'`);
-            }
+        function navigateCommandHistory(direction) { /* ... (same as before) ... */
+             if (commandInput.disabled || commandHistoryArray.length === 0) return; const newIndex = commandHistoryIndex + direction; if (newIndex >= -1 && newIndex < commandHistoryArray.length) { commandHistoryIndex = newIndex; const historyValue = (commandHistoryIndex === -1) ? '' : commandHistoryArray[commandHistoryArray.length - 1 - commandHistoryIndex]; commandInput.value = historyValue; commandInput.setSelectionRange(commandInput.value.length, commandInput.value.length); }
+         }
+         function handleTabCompletion() { /* ... (same as before) ... */
+             if (commandInput.disabled) return; const currentInput = commandInput.value.toLowerCase(); if (currentInput.length === 0) return; const matches = COMMANDS.filter(cmd => cmd.startsWith(currentInput)); if (matches.length === 1) { commandInput.value = matches[0]; commandInput.setSelectionRange(matches[0].length, matches[0].length); } else if (matches.length > 1) { let suggestionsHTML = `<p style="margin-bottom: 5px;">Suggestions:</p><ul style="list-style: none; padding-left: 10px; display: flex; flex-wrap: wrap; gap: 10px 15px;">`; matches.forEach(match => { suggestionsHTML += `<li style="color: var(--tertiary);">${match}</li>`; }); suggestionsHTML += `</ul>`; displayResponse(suggestionsHTML); scrollToBottom(terminalBody); }
+         }
+         function displayCommand(command) { /* ... (same as before) ... */
+            if (!commandHistory) return; const commandLine = document.createElement('div'); commandLine.className = 'command-line'; const sanitizedCommand = command.replace(/</g, "<").replace(/>/g, ">"); commandLine.innerHTML = `<span class="prompt">visitor@portfolio:~$</span> ${sanitizedCommand}`; commandHistory.appendChild(commandLine);
         }
-
-        function handleTabCompletion() {
-            const currentInput = commandInput.value.toLowerCase();
-            if (currentInput.length === 0) return;
-            const matches = COMMANDS.filter(cmd => cmd.startsWith(currentInput));
-            console.log(`Tab completion check for '${currentInput}', matches:`, matches);
-
-            if (matches.length === 1) {
-                commandInput.value = matches[0]; // Autocomplete
-                commandInput.setSelectionRange(matches[0].length, matches[0].length);
-            } else if (matches.length > 1) {
-                // Display suggestions
-                let suggestionsHTML = `<p style="margin-bottom: 5px;">Suggestions:</p><ul style="list-style: none; padding-left: 10px; display: flex; flex-wrap: wrap; gap: 10px 15px;">`; // Added gap
-                matches.forEach(match => { suggestionsHTML += `<li style="color: var(--tertiary);">${match}</li>`; });
-                suggestionsHTML += `</ul>`;
-                displayResponse(suggestionsHTML);
-                scrollToBottom(terminalBody);
-            }
-        }
-
-        function displayCommand(command) {
-            if (!commandHistory) return;
-            console.log(`Displaying command line for: '${command}'`);
-            const commandLine = document.createElement('div');
-            commandLine.className = 'command-line';
-            const sanitizedCommand = command.replace(/</g, "<").replace(/>/g, ">");
-            commandLine.innerHTML = `<span class="prompt">visitor@portfolio:~$</span> ${sanitizedCommand}`;
-            commandHistory.appendChild(commandLine);
-        }
-
-        function displayResponse(htmlContent) {
-            if (!commandHistory) return;
-            console.log("Displaying response content.");
-            const response = document.createElement('div');
-            response.className = 'command-response';
-            // WARNING: Setting innerHTML can be risky if htmlContent is untrusted.
-            // For this portfolio context with controlled content, it's generally okay.
-            response.innerHTML = htmlContent;
-            commandHistory.appendChild(response);
-            scrollToBottom(terminalBody); // Ensure response is visible
+         function displayResponse(htmlContent) { /* ... (same as before) ... */
+            if (!commandHistory) return; const response = document.createElement('div'); response.className = 'command-response'; response.innerHTML = htmlContent; commandHistory.appendChild(response); scrollToBottom(terminalBody);
         }
 
         // --- Command Processing ---
         function processCommand(command) {
             console.log(`Processing command: '${command}'`);
-            // Stop any active effects first
+            // Stop matrix if active
             try {
-                if (matrixInterval) { deactivateMatrixMode(false); console.log("Matrix deactivated before processing."); }
-                stopAudio(); console.log("Audio stopped before processing.");
+                if (matrixInterval) { deactivateMatrixMode(false); }
+                // Removed stopAudio();
             } catch (error) { console.error("Error stopping effects:", error); }
 
             let responseHTML = '';
 
             switch (command) {
                 case 'help':
-                    console.log("Executing: help");
                     responseHTML = `
-                        <p style="color: var(--primary); margin-bottom: 10px;">COMMAND LIST</p>
+                        <p style="color: var(--primary); margin-bottom: 10px;">AVAILABLE COMMANDS</p>
                         <ul style="list-style-type: none; padding-left: 0;">
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">about</span> - Who I am</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">skills</span> - What I can do</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">projects</span> - What I've built</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">contact</span> - How to reach me</li>
-                         <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">resume</span> - View/Download my Resume</li>
+                         <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">resume</span> - View/Download Resume</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">theme</span> - Toggle color scheme</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">matrix</span> - Engage visualizer</li>
-                         <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">clear</span> - Clear screen buffer</li>
+                         <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">clear</span> - Clear screen</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">exit</span> - Terminate session</li>
                          <li style="margin-bottom: 5px;"><span style="color: var(--primary); width: 90px; display: inline-block;">help</span> - Display this list</li>
                         </ul>`;
                     displayResponse(responseHTML);
                     break;
-
-                case 'about':
-                    console.log("Executing: about");
-                    showContent('My Profile', generateAboutContent());
-                    displayResponse(`<p>Accessing profile data...</p>`);
-                    break;
-
-                case 'skills':
-                     console.log("Executing: skills");
-                     showContent('Skill Matrix', generateSkillsContent());
-                     displayResponse(`<p>Loading skill assessment modules...</p>`);
-                     break;
-
-                 case 'projects':
-                     console.log("Executing: projects");
-                     showContent('Project Archive', generateProjectsContent());
-                     displayResponse(`<p>Querying project database...</p>`);
-                     break;
-
-                 case 'contact':
-                     console.log("Executing: contact");
-                     showContent('Communication Channels', generateContactContent());
-                     displayResponse(`<p>Establishing secure contact links...</p>`);
-                     break;
-
-                 case 'resume':
-                      console.log("Executing: resume");
-                      // IMPORTANT: Replace '/path/to/your/resume.pdf' with the actual URL or path
+                case 'about': showContent('My Profile', generateAboutContent()); displayResponse(`<p>Accessing profile...</p>`); break;
+                case 'skills': showContent('Skill Matrix', generateSkillsContent()); displayResponse(`<p>Loading skill modules...</p>`); break;
+                case 'projects': showContent('Project Archive', generateProjectsContent()); displayResponse(`<p>Querying projects...</p>`); break;
+                case 'contact': showContent('Communication Channels', generateContactContent()); displayResponse(`<p>Establishing contact links...</p>`); break;
+                case 'resume':
                       const resumeUrl = 'resume.pdf';
-                      responseHTML = `<p>Accessing resume file...</p>
-                                      <p>Resume available: <a href="${resumeUrl}" target="_blank" style="color: var(--tertiary); text-decoration: underline;">Keshav_Resume.pdf</a></p>
-                                      ${resumeUrl === 'resume.pdf' ? '<p>(Remember to update the resume link in the code)</p>' : ''}`;
+                      responseHTML = `<p>Accessing resume...</p><p>Resume: <a href="${resumeUrl}" target="_blank" style="color: var(--tertiary); text-decoration: underline;">Keshav_Resume.pdf</a></p>`;
                       displayResponse(responseHTML);
                       break;
-
-                 case 'clear':
-                     console.log("Executing: clear");
+                case 'clear':
                      if (commandHistory) commandHistory.innerHTML = '';
-                     if (bootSequenceContainer) bootSequenceContainer.innerHTML = ''; // Also clear boot sequence
-                     // Display a fresh prompt visually
+                     if (bootSequenceContainer) bootSequenceContainer.innerHTML = '';
                      displayCommand("");
-                     // Remove the command line added by displayCommand if you want *only* the prompt
-                     if (commandHistory && commandHistory.lastChild && commandHistory.lastChild.classList.contains('command-line')) {
-                         commandHistory.removeChild(commandHistory.lastChild);
-                     }
-                     break; // No response needed
-
-                 case 'exit':
-                     console.log("Executing: exit");
-                     displayResponse(`<p>Session termination sequence initiated...</p><p>Connection closed. Goodbye!</p>`);
+                     if (commandHistory && commandHistory.lastChild && commandHistory.lastChild.classList.contains('command-line')) { commandHistory.removeChild(commandHistory.lastChild); }
+                     break;
+                 case 'exit': // --- Updated Exit Logic ---
+                     displayResponse(`<p>Session termination sequence initiated...</p>`);
                      if (commandInput) commandInput.disabled = true;
                      if (blinkingCursor) blinkingCursor.style.display = 'none';
+                     // Disable quick commands too
+                     quickCommandBtns.forEach(btn => btn.disabled = true);
+                     // Show the exit modal after a short delay
                      setTimeout(() => {
-                         document.body.style.transition = 'opacity 0.5s ease-out';
-                         document.body.style.opacity = '0';
-                         setTimeout(() => { location.reload(); }, 500);
-                     }, 1500);
+                        if (exitModal) exitModal.style.display = 'flex';
+                     }, 800);
                      break;
-
-                 case 'matrix':
-                     console.log("Executing: matrix");
-                     displayResponse(`<p>Engaging Matrix visualizer... Stand by.</p><p>(Automatically disengages after 10 seconds)</p>`);
-                     activateMatrixMode();
-                     break;
-
-                 case 'visualizer':
-                     console.log("Executing: visualizer");
-                     showContent('Audio Spectrum Analyzer', generateVisualizerContent());
-                     displayResponse(`<p>Initializing audio input interface...</p>`);
-                     break;
-
-                 case 'theme':
-                     console.log("Executing: theme");
-                     toggleTheme();
-                     displayResponse(`<p>Color palette shifted.</p>`);
-                     break;
-
+                 case 'matrix': displayResponse(`<p>Engaging Matrix visualizer... (Auto-disengage: 10s)</p>`); activateMatrixMode(); break;
+                 // Removed 'visualizer' case
+                 case 'theme': toggleTheme(); displayResponse(`<p>Color palette shifted.</p>`); break;
                 default:
-                    console.log(`Command not recognized: '${command}'`);
-                    responseHTML = `<p><span style="color: var(--secondary);">Error:</span> Unknown command '<span style="font-style: italic;">${command.replace(/</g, "<").replace(/>/g, ">")}</span>'.</p><p>Type 'help' for a list of valid commands.</p>`;
-                     displayResponse(responseHTML);
+                    const sanitizedDefault = command.replace(/</g, "<").replace(/>/g, ">");
+                    responseHTML = `<p><span style="color: var(--secondary);">Error:</span> Unknown command '<span style="font-style: italic;">${sanitizedDefault}</span>'. Type 'help'.</p>`;
+                    displayResponse(responseHTML);
             }
-            console.log(`Finished processing command: '${command}'`);
         }
-
 
         // --- Content Display Panel ---
-        function showContent(title, contentHTML) {
-             if (!contentDisplay || !contentTitle || !contentBody) {
-                 console.error("Cannot show content, display panel elements missing.");
-                 return;
-             }
-             console.log(`Showing content panel: ${title}`);
-             contentTitle.textContent = title;
-             contentBody.innerHTML = contentHTML;
-             contentBody.scrollTop = 0; // Scroll to top when new content loads
-
-             contentDisplay.style.display = 'flex'; // Ensure it's flex for layout
-             contentDisplay.style.animation = 'fadeIn 0.3s ease-out forwards';
-
-             // Trigger skill bar animation or other initializations after content is rendered
-             setTimeout(() => {
-                  if (title === 'Skill Matrix') {
-                       console.log("Animating skill bars.");
-                       contentBody.querySelectorAll('.skill-progress').forEach(bar => {
-                           const width = bar.getAttribute('data-width');
-                           if (width) bar.style.width = width;
-                       });
-                  } else if (title === 'Audio Spectrum Analyzer') {
-                       console.log("Initializing audio visualizer controls.");
-                       initializeAudioVisualizerControls();
-                  }
-                  // Removed cube logic
-             }, 150); // Delay ensures elements are in the DOM
+        function showContent(title, contentHTML) { // --- Updated to handle dynamic contact form listener ---
+            if (!contentDisplay || !contentTitle || !contentBody) return;
+            contentTitle.textContent = title; contentBody.innerHTML = contentHTML; contentBody.scrollTop = 0;
+            contentDisplay.style.display = 'flex'; contentDisplay.style.animation = 'fadeIn 0.3s ease-out forwards';
+            setTimeout(() => {
+                 if (title === 'Skill Matrix') { contentBody.querySelectorAll('.skill-progress').forEach(bar => { const width = bar.getAttribute('data-width'); if (width) bar.style.width = width; }); }
+                 // Removed visualizer check
+                 else if (title === 'Communication Channels') {
+                       const contactForm = document.getElementById('contactForm');
+                       if (contactForm) { contactForm.removeEventListener('submit', handleFormSubmit); contactForm.addEventListener('submit', handleFormSubmit); }
+                 }
+            }, 150);
         }
-
-        function setupCloseContentButton() {
+        function setupCloseContentButton() { // --- Updated to focus input on close ---
             if (!closeContent || !contentDisplay) return;
-            console.log("Setting up close content button.");
             closeContent.addEventListener('click', function () {
-                 console.log("Close content button clicked.");
                  contentDisplay.style.animation = 'fadeOut 0.3s ease-out forwards';
-                  setTimeout(() => {
-                       contentDisplay.style.display = 'none'; // Hide after animation
-                       contentBody.innerHTML = ''; // Clear content
-                       stopAudio(); // Ensure audio stops if visualizer was open
-                       contentDisplay.style.animation = ''; // Reset animation
-                       console.log("Content panel closed.");
-                  }, 300);
+                 setTimeout(() => {
+                       contentDisplay.style.display = 'none'; contentBody.innerHTML = '';
+                       contentDisplay.style.animation = '';
+                       // Removed stopAudio() call
+                       if (!commandInput.disabled) commandInput.focus(); // Focus input if terminal is active
+                 }, 300);
              });
         }
 
-        // --- Specific Feature Implementations --- (toggleTheme, activateMatrixMode, deactivateMatrixMode, audio functions, content generators)
-
-        function toggleTheme() { /* ... as before ... */
-            const root = document.documentElement;
-            const currentPrimary = getComputedStyle(root).getPropertyValue('--primary').trim();
-            const newPrimary = currentPrimary === '#0cff8a' ? '#ff00ff' : '#0cff8a';
-            const newSecondary = currentPrimary === '#0cff8a' ? '#00ffff' : '#ff00ff';
-            const newTertiary = currentPrimary === '#0cff8a' ? '#ffff00' : '#00ffff';
-
-            root.style.setProperty('--primary', newPrimary);
-            root.style.setProperty('--secondary', newSecondary);
-            root.style.setProperty('--tertiary', newTertiary);
-             console.log(`Theme toggled. New primary: ${newPrimary}`);
-
-            // Update particles color
-             try {
-                 if (window.pJSDom && window.pJSDom[0]) {
-                      const particles = window.pJSDom[0].pJS.particles;
-                      const lineLinked = window.pJSDom[0].pJS.particles.line_linked;
-                      const rgb = hexToRgb(newPrimary);
-                      if (rgb) {
-                           particles.color.value = newPrimary;
-                           particles.color.rgb = rgb;
-                           lineLinked.color = newPrimary;
-                           lineLinked.color_rgb_line = rgb;
-                           console.log("ParticlesJS colors updated.");
-                           // Avoid full refresh if possible, color update might be enough
-                           // window.pJSDom[0].pJS.fn.particlesRefresh();
-                      }
-                 }
-             } catch (error) { console.error("Error updating particle colors:", error); }
-
-            // Trigger glitch
-            const glitchOverlay = document.querySelector('.glitch-overlay');
-            if (glitchOverlay) {
-                glitchOverlay.style.animation = 'none'; void glitchOverlay.offsetWidth;
-                glitchOverlay.style.animation = 'glitch 0.5s 1 ease-in-out';
-            }
+        // --- Specific Feature Implementations ---
+        function toggleTheme() { /* ... (same as before) ... */
+            const root = document.documentElement; const currentPrimary = getComputedStyle(root).getPropertyValue('--primary').trim(); const newPrimary = currentPrimary === '#0cff8a' ? '#ff00ff' : '#0cff8a'; const newSecondary = currentPrimary === '#0cff8a' ? '#00ffff' : '#ff00ff'; const newTertiary = currentPrimary === '#0cff8a' ? '#ffff00' : '#00ffff'; root.style.setProperty('--primary', newPrimary); root.style.setProperty('--secondary', newSecondary); root.style.setProperty('--tertiary', newTertiary); try { if (window.pJSDom && window.pJSDom[0]) { const particles = window.pJSDom[0].pJS.particles; const lineLinked = window.pJSDom[0].pJS.particles.line_linked; const rgb = hexToRgb(newPrimary); if (rgb) { particles.color.value = newPrimary; particles.color.rgb = rgb; lineLinked.color = newPrimary; lineLinked.color_rgb_line = rgb; window.pJSDom[0].pJS.fn.particlesRefresh(); } } } catch (error) { console.error("Error updating particle colors:", error); } const glitchOverlay = document.querySelector('.glitch-overlay'); if (glitchOverlay) { glitchOverlay.style.animation = 'none'; void glitchOverlay.offsetWidth; glitchOverlay.style.animation = 'glitch 0.5s 1 ease-in-out'; }
+        }
+        function hexToRgb(hex) { /* ... (same as before) ... */
+             const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
+        }
+        function activateMatrixMode() { /* ... (same as before) ... */
+             if (!terminalBody || matrixInterval) return; if (commandHistory && commandHistory.lastChild && commandHistory.lastChild.classList.contains('command-response')) { commandHistory.lastChild.style.display = 'none'; } const canvas = document.createElement('canvas'); canvas.id = 'matrix-canvas'; terminalBody.appendChild(canvas); terminalBody.classList.add('matrix-active'); const ctx = canvas.getContext('2d'); canvas.width = terminalBody.clientWidth; canvas.height = terminalBody.clientHeight; const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン'; const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; const nums = '0123456789'; const characters = katakana + latin + nums; const fontSize = 16; const columns = Math.floor(canvas.width / fontSize); const drops = Array.from({ length: columns }, () => 1 + Math.random() * canvas.height / fontSize); function drawMatrix() { if (!matrixInterval) return; ctx.fillStyle = 'rgba(16, 16, 24, 0.07)'; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.font = `bold ${fontSize}px var(--font-mono)`; drops.forEach((y, i) => { const text = characters.charAt(Math.floor(Math.random() * characters.length)); const x = i * fontSize; ctx.fillStyle = '#e0ffe0'; ctx.fillText(text, x, y * fontSize); ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(); if (y > 5) { ctx.fillText(characters.charAt(Math.floor(Math.random() * characters.length)), x, (y - 1) * fontSize); } drops[i] = (y * fontSize > canvas.height && Math.random() > 0.98) ? 0 : y + 1; }); } if (matrixInterval) clearInterval(matrixInterval); matrixInterval = setInterval(drawMatrix, 55); setTimeout(() => { deactivateMatrixMode(true); }, 10000);
+        }
+        function deactivateMatrixMode(showMessage) { /* ... (same as before) ... */
+             if (matrixInterval) { clearInterval(matrixInterval); matrixInterval = null; } const canvas = document.getElementById('matrix-canvas'); if (canvas) { canvas.remove(); } if (terminalBody) { terminalBody.classList.remove('matrix-active'); const lastResponse = commandHistory?.lastChild; if (lastResponse && lastResponse.style.display === 'none') { lastResponse.style.display = ''; } } if (showMessage) { displayResponse('<p>Matrix visualizer disengaged.</p>'); scrollToBottom(terminalBody); } if (commandInput) commandInput.focus();
         }
 
-        function hexToRgb(hex) { /* ... as before ... */
-             const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-             return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : null;
-         }
-
-        function activateMatrixMode() { /* ... improved version ... */
-             if (!terminalBody || matrixInterval) return;
-             console.log("Activating Matrix mode.");
-
-             // Clear previous response/prompt visually before showing canvas
-             if (commandHistory && commandHistory.lastChild && commandHistory.lastChild.classList.contains('command-response')) {
-                 commandHistory.lastChild.style.display = 'none'; // Hide last response
-             }
-
-             const canvas = document.createElement('canvas');
-             canvas.id = 'matrix-canvas';
-             terminalBody.appendChild(canvas);
-             // Apply class *after* appending to ensure layout calculations use it
-             terminalBody.classList.add('matrix-active');
-
-             const ctx = canvas.getContext('2d');
-             canvas.width = terminalBody.clientWidth; // Use clientWidth/Height for accurate render size
-             canvas.height = terminalBody.clientHeight;
-             console.log(`Matrix canvas created with size: ${canvas.width}x${canvas.height}`);
-
-             const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-             const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-             const nums = '0123456789';
-             const characters = katakana + latin + nums;
-             const fontSize = 16;
-             const columns = Math.floor(canvas.width / fontSize);
-             // Ensure drops array matches column count, initialize randomly
-             const drops = Array.from({ length: columns }, () => 1 + Math.random() * canvas.height / fontSize);
-
-             function drawMatrix() {
-                 if (!matrixInterval) return; // Stop drawing if interval cleared
-                 ctx.fillStyle = 'rgba(16, 16, 24, 0.07)'; // Slightly denser trail
-                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                 ctx.font = `bold ${fontSize}px var(--font-mono)`; // Use bold font
-
-                 drops.forEach((y, i) => {
-                     const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                     const x = i * fontSize;
-                     // Leading character (brighter/white)
-                     ctx.fillStyle = '#e0ffe0'; // Very light green/white
-                     ctx.fillText(text, x, y * fontSize);
-                     // Trail characters (primary color)
-                     ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-                     // Optionally add a few trail characters above
-                     if (y > 5) { // Only draw trail if there's space
-                         const trailChar1 = characters.charAt(Math.floor(Math.random() * characters.length));
-                         ctx.fillText(trailChar1, x, (y - 1) * fontSize);
-                     }
-
-                     if (y * fontSize > canvas.height && Math.random() > 0.98) { // Increase reset chance slightly
-                         drops[i] = 0;
-                     } else {
-                         drops[i]++;
-                     }
-                 });
-             }
-
-             if (matrixInterval) clearInterval(matrixInterval); // Clear any lingering interval
-             matrixInterval = setInterval(drawMatrix, 55); // Slightly adjusted speed
-             console.log("Matrix interval started:", matrixInterval);
-
-             setTimeout(() => { deactivateMatrixMode(true); }, 10000);
-         }
-
-        function deactivateMatrixMode(showMessage) { /* ... improved version ... */
-             console.log("Deactivating Matrix mode...");
-             if (matrixInterval) {
-                 clearInterval(matrixInterval);
-                 matrixInterval = null;
-                 console.log("Matrix interval cleared.");
-             }
-             const canvas = document.getElementById('matrix-canvas');
-             if (canvas) {
-                 canvas.remove();
-                 console.log("Matrix canvas removed.");
-             }
-             if (terminalBody) {
-                 terminalBody.classList.remove('matrix-active');
-                 // Restore visibility of hidden elements if needed
-                 const lastResponse = commandHistory?.lastChild;
-                 if (lastResponse && lastResponse.style.display === 'none') {
-                     lastResponse.style.display = ''; // Restore last response visibility
-                 }
-                 console.log("Terminal body class removed.");
-             }
-             if (showMessage) {
-                 displayResponse('<p>Matrix visualizer disengaged.</p>');
-                 scrollToBottom(terminalBody);
-             }
-             if (commandInput) commandInput.focus();
-         }
-
-
-         // --- Audio Visualizer Functions --- (generateVisualizerContent, initializeAudioVisualizerControls, startVisualizing, stopAudio as refined previously)
-         function generateVisualizerContent() {
-             return `
-             <div class="text-center mb-4">
-                 <h2 style="color: var(--primary);">Audio Spectrum Analyzer</h2>
-                 <p>Connects to microphone input (requires permission) or plays a demo tone.</p>
-             </div>
-             <div class="audio-visualizer" id="audio-visualizer">
-                 ${Array(64).fill().map(() => '<div class="audio-bar"></div>').join('')}
-             </div>
-             <div class="text-center mt-4 audio-controls">
-                 <button id="start-audio" class="btn btn-primary">Enable Mic Input</button>
-                 <button id="play-demo" class="btn btn-secondary secondary">Play Demo Tone</button>
-             </div>`;
-         }
-         function initializeAudioVisualizerControls() {
-             const startBtn = document.getElementById('start-audio');
-             const demoBtn = document.getElementById('play-demo');
-             const visualizer = document.getElementById('audio-visualizer');
-             if (!startBtn || !demoBtn || !visualizer) { console.error("Audio controls missing"); return; }
-             const bars = visualizer.querySelectorAll('.audio-bar');
-             console.log(`Found ${bars.length} audio bars.`);
-
-             startBtn.onclick = async () => {
-                 console.log("Start/Stop Mic button clicked. isPlaying:", isVisualizerPlaying);
-                 if (isVisualizerPlaying && audioSource?.mediaStream) { // Check if it's mic source
-                     stopAudio();
-                     startBtn.textContent = 'Enable Mic Input'; return;
-                 }
-                 stopAudio(); // Stop any previous instance (demo or mic)
-                 try {
-                     if (!navigator.mediaDevices?.getUserMedia) throw new Error('getUserMedia not supported by browser.');
-                     console.log("Requesting microphone access...");
-                     audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                     analyser = audioContext.createAnalyser();
-                     analyser.fftSize = 256; // Needs to be power of 2, relates to bar count/resolution
-                     analyser.smoothingTimeConstant = 0.8; // Smoother transitions
-
-                     const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-                     console.log("Microphone access granted.");
-                     audioSource = audioContext.createMediaStreamSource(stream);
-                     audioSource.connect(analyser);
-                     startVisualizing(bars);
-                     startBtn.textContent = 'Disable Mic Input';
-                     isVisualizerPlaying = true;
-                     console.log("Microphone visualizer started.");
-                 } catch (err) {
-                     console.error('Microphone Error:', err);
-                     alert(`Microphone access failed: ${err.message}.\nPlease check browser permissions (usually a camera/mic icon in the address bar).`);
-                     stopAudio(); // Clean up on error
-                 }
-             };
-             demoBtn.onclick = () => {
-                 console.log("Play Demo button clicked.");
-                 stopAudio(); // Stop any previous instance
-                 try {
-                     audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                     analyser = audioContext.createAnalyser();
-                     analyser.fftSize = 256;
-                     analyser.smoothingTimeConstant = 0.6; // Different smoothing for demo
-
-                     const oscillator = audioContext.createOscillator();
-                     oscillator.type = 'sawtooth'; // More harmonics than sine
-                     oscillator.frequency.setValueAtTime(110, audioContext.currentTime); // A2
-                     oscillator.frequency.exponentialRampToValueAtTime(880, audioContext.currentTime + 1.8); // Ramp up 2 octaves
-                     const gainNode = audioContext.createGain();
-                     gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-                     gainNode.gain.linearRampToValueAtTime(0.15, audioContext.currentTime + 0.1); // Quick fade in
-                     gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 2.8); // Fade out longer
-
-                     // Only connect to analyser, not destination unless you want sound
-                     oscillator.connect(gainNode).connect(analyser);
-                     // gainNode.connect(audioContext.destination); // Uncomment to hear the demo sound
-
-                     oscillator.start();
-                     oscillator.stop(audioContext.currentTime + 3);
-                     startVisualizing(bars);
-                     isVisualizerPlaying = true;
-                     console.log("Demo sound visualizer started.");
-                     // Schedule stop for cleanup
-                     setTimeout(() => {
-                         // Check if it was the demo still running before stopping
-                         if (isVisualizerPlaying && !audioSource?.mediaStream) {
-                             stopAudio();
-                             console.log("Demo sound visualizer stopped automatically.");
-                         }
-                     }, 3100);
-                 } catch (error) {
-                      console.error("Error playing demo sound:", error);
-                      alert("Could not play demo sound.");
-                      stopAudio();
-                 }
-             };
-         }
-         function startVisualizing(bars) {
-             if (!analyser) return;
-             const bufferLength = analyser.frequencyBinCount;
-             const dataArray = new Uint8Array(bufferLength);
-             const barCount = bars.length;
-             let animationFrameId;
-
-             function drawVisualizerFrame() {
-                 if (!isVisualizerPlaying || !analyser) { // Check flag and analyser existence
-                     if(animationFrameId) cancelAnimationFrame(animationFrameId);
-                     return;
-                 };
-                 animationFrameId = requestAnimationFrame(drawVisualizerFrame); // Request next frame *first*
-                 analyser.getByteFrequencyData(dataArray); // Get data for the current frame
-
-                 const maxHeight = 80; // Max height of bars matches container
-
-                 for (let i = 0; i < barCount; i++) {
-                     // Map buffer index more carefully, especially for lower frequencies
-                     // Logarithmic mapping might be better, but linear is simpler here
-                     const dataIndex = Math.floor(Math.pow(i / barCount, 1.5) * bufferLength); // Bias towards lower frequencies somewhat
-                     // const dataIndex = Math.floor(i * bufferLength / barCount); // Linear mapping
-                     const value = dataArray[dataIndex] / 255.0; // Normalize 0-1
-                     const height = Math.max(1, Math.pow(value, 1.5) * maxHeight); // Apply power curve for more dynamic look, min height 1px
-
-                     if (bars[i]) {
-                          bars[i].style.height = height + 'px';
-                           // Color based on height/intensity
-                          const hue = 120 + value * 100; // Green (120) towards Yellow/Orange (220)
-                          bars[i].style.backgroundColor = `hsl(${hue}, 90%, ${50 + value * 15}%)`; // Increase lightness slightly with intensity
-                     }
-                 }
-             }
-             drawVisualizerFrame(); // Start the loop
-         }
-         function stopAudio() {
-             console.log("Stopping audio visualization...");
-             if (isVisualizerPlaying) isVisualizerPlaying = false; // Critical to stop the animation loop
-             if (audioSource?.mediaStream) { // Check if it's a MediaStreamSource
-                  audioSource.mediaStream.getTracks().forEach(track => track.stop());
-                  console.log("Microphone tracks stopped.");
-             }
-             if (audioContext?.state !== 'closed') {
-                  audioContext.close().then(() => console.log("AudioContext closed.")).catch(e => console.warn("Error closing AudioContext:", e));
-             }
-             // Reset global state variables
-             audioContext = analyser = audioSource = null;
-
-             // Reset UI elements
-             const visualizer = document.getElementById('audio-visualizer');
-             if(visualizer) {
-                  visualizer.querySelectorAll('.audio-bar').forEach(bar => {
-                       bar.style.height = '0px';
-                       bar.style.backgroundColor = 'var(--primary)';
-                  });
-             }
-             const startBtn = document.getElementById('start-audio');
-             if(startBtn) startBtn.textContent = 'Enable Mic Input';
-             console.log("Audio stopped and UI reset.");
-         }
-
-
-        // --- Content Generators --- (generateAboutContent, generateSkillsContent, generateProjectsContent, generateContactContent as refined previously)
-         function generateAboutContent() {
-            return `
-            <div class="about-container">
-                <div>
-                    <img src="me.jpg" alt="Profile Photo" class="about-image">
-                </div>
-                <div class="about-content">
-                    <h2 class="about-title">[ Keshav Agrawal // Software Engineer ]</h2>
-                    <p class="about-text">I am a passionate Computer Science and Artificial Intelligence student at Manipal Institute of Technology, with a keen focus on developing impactful tech solutions. Through my coursework in Machine Learning, Computer Vision, and Big Data Analytics, I have built a strong foundation that supports both my academic and project-based achievements.</p>
-                    <p class="about-text">Professionally, I thrive at the intersection of technology and user experience. At OnePlus, I rigorously tested OS updates and prototype hardware, contributing directly to improved product quality. My project experiences range from engineering a high-accuracy image retrieval system using OpenCV to leading a team for stock market predictions with Big Data tools, showcasing my technical depth and leadership capabilities.</p>
-                    <p class="about-text">Beyond technical pursuits, I actively engage in organizational leadership as the HR Head of the Photography Club at Manipal, where I oversee operations and mentor junior leaders. Whether it’s building scalable systems, leading initiatives, or crafting user-centric solutions, I bring energy, adaptability, and a relentless drive for excellence to every opportunity I pursue.</p>
-                    <div class="about-stats">
-                        <div class="stat-item"><div class="stat-value">15+</div><div class="stat-label">Projects</div></div>
-                        <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Core Tech Stacks</div></div>
-                        <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Commitment</div></div>
-                    </div>
-                </div>
-            </div>`;
+        // --- Content Generators ---
+        function generateAboutContent() { /* ... (same as before) ... */
+            return `<div class="about-container"><div><img src="me.jpg" alt="Profile Photo" class="about-image"></div><div class="about-content"><h2 class="about-title">[ Keshav Agrawal // Software Engineer ]</h2><p class="about-text">Passionate CS & AI student at MIT Manipal, focused on impactful tech solutions. Strong foundation in ML, CV, and Big Data Analytics drives academic and project success.</p><p class="about-text">Thrive at the intersection of tech & UX. At OnePlus, tested OS updates & prototype hardware, enhancing product quality. Projects include high-accuracy image retrieval (OpenCV) and leading stock prediction with Big Data tools, showing technical depth & leadership.</p><p class="about-text">Active in leadership as HR Head of Photography Club @ Manipal, overseeing operations & mentoring. Whether building scalable systems, leading initiatives, or crafting user-centric solutions, I bring energy, adaptability, and a drive for excellence.</p><div class="about-stats"><div class="stat-item"><div class="stat-value">15+</div><div class="stat-label">Projects</div></div><div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Tech Stacks</div></div><div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Commitment</div></div></div></div></div>`;
         }
-         function generateSkillsContent() {
-            return `
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="skill-category-title"> <Frontend Arsenal /></h3>
-                    <div class="skill-grid">
-                        <div class="skill-item"><div class="skill-name">HTML5 / CSS3</div><div class="skill-level"><div class="skill-progress" data-width="95%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">JavaScript / TypeScript</div><div class="skill-level"><div class="skill-progress" data-width="93%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">React / Redux</div><div class="skill-level"><div class="skill-progress" data-width="92%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">React.js / Next.js</div><div class="skill-level"><div class="skill-progress" data-width="88%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">Tailwind CSS / Bootstrap</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">UI/UX Principles</div><div class="skill-level"><div class="skill-progress" data-width="75%"></div></div></div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">{ Backend & Database }</h3>
-                    <div class="skill-grid">
-                         <div class="skill-item"><div class="skill-name">Node.js / Express.js / NestJS</div><div class="skill-level"><div class="skill-progress" data-width="94%"></div></div></div>
-                         <div class="skill-item"><div class="skill-name">Python (Flask / Django)</div><div class="skill-level"><div class="skill-progress" data-width="85%"></div></div></div>
-                         <div class="skill-item"><div class="skill-name">REST APIs / GraphQL (Apollo)</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div>
-                         <div class="skill-item"><div class="skill-name">PostgreSQL / MySQL</div><div class="skill-level"><div class="skill-progress" data-width="85%"></div></div></div>
-                         <div class="skill-item"><div class="skill-name">MongoDB / Redis</div><div class="skill-level"><div class="skill-progress" data-width="88%"></div></div></div>
-                         <div class="skill-item"><div class="skill-name">Authentication / Authorization</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title"># Tools & Infrastructure #</h3>
-                    <div class="skill-grid">
-                        <div class="skill-item"><div class="skill-name">Git / GitHub / GitLab CI/CD</div><div class="skill-level"><div class="skill-progress" data-width="96%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">Docker / Docker Compose</div><div class="skill-level"><div class="skill-progress" data-width="85%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">AWS (EC2, S3, RDS, Lambda, ECS)</div><div class="skill-level"><div class="skill-progress" data-width="75%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">Linux / Bash Scripting</div><div class="skill-level"><div class="skill-progress" data-width="80%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">Jest / Cypress / Testing Library</div><div class="skill-level"><div class="skill-progress" data-width="82%"></div></div></div>
-                        <div class="skill-item"><div class="skill-name">Agile / Scrum Methodologies</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div>
-                    </div>
-                </div>
-            </div>`;
+        function generateSkillsContent() { /* ... (same as before) ... */
+            return `<div class="skills-container"><div class="skill-category"><h3 class="skill-category-title"> <Frontend Arsenal /></h3><div class="skill-grid"> <div class="skill-item"><div class="skill-name">HTML5 / CSS3</div><div class="skill-level"><div class="skill-progress" data-width="95%"></div></div></div> <div class="skill-item"><div class="skill-name">JavaScript / TypeScript</div><div class="skill-level"><div class="skill-progress" data-width="93%"></div></div></div> <div class="skill-item"><div class="skill-name">React / Redux</div><div class="skill-level"><div class="skill-progress" data-width="92%"></div></div></div> <div class="skill-item"><div class="skill-name">React.js / Next.js</div><div class="skill-level"><div class="skill-progress" data-width="88%"></div></div></div> <div class="skill-item"><div class="skill-name">Tailwind CSS / Bootstrap</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div> <div class="skill-item"><div class="skill-name">UI/UX Principles</div><div class="skill-level"><div class="skill-progress" data-width="75%"></div></div></div></div></div><div class="skill-category"><h3 class="skill-category-title">{ Backend & Database }</h3><div class="skill-grid"> <div class="skill-item"><div class="skill-name">Node.js / Express.js / NestJS</div><div class="skill-level"><div class="skill-progress" data-width="94%"></div></div></div> <div class="skill-item"><div class="skill-name">Python (Flask / Django)</div><div class="skill-level"><div class="skill-progress" data-width="85%"></div></div></div> <div class="skill-item"><div class="skill-name">REST APIs / GraphQL (Apollo)</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div> <div class="skill-item"><div class="skill-name">PostgreSQL / MySQL</div><div class="skill-level"><div class="skill-progress" data-width="85%"></div></div></div> <div class="skill-item"><div class="skill-name">MongoDB / Redis</div><div class="skill-level"><div class="skill-progress" data-width="88%"></div></div></div> <div class="skill-item"><div class="skill-name">Authentication / Authorization</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div></div></div><div class="skill-category"><h3 class="skill-category-title"># Tools & Infrastructure #</h3><div class="skill-grid"> <div class="skill-item"><div class="skill-name">Git / GitHub / GitLab CI/CD</div><div class="skill-level"><div class="skill-progress" data-width="96%"></div></div></div> <div class="skill-item"><div class="skill-name">Docker / Docker Compose</div><div class="skill-level"><div class="skill-progress" data-width="85%"></div></div></div> <div class="skill-item"><div class="skill-name">AWS (EC2, S3, RDS, Lambda, ECS)</div><div class="skill-level"><div class="skill-progress" data-width="75%"></div></div></div> <div class="skill-item"><div class="skill-name">Linux / Bash Scripting</div><div class="skill-level"><div class="skill-progress" data-width="80%"></div></div></div> <div class="skill-item"><div class="skill-name">Jest / Cypress / Testing Library</div><div class="skill-level"><div class="skill-progress" data-width="82%"></div></div></div> <div class="skill-item"><div class="skill-name">Agile / Scrum Methodologies</div><div class="skill-level"><div class="skill-progress" data-width="90%"></div></div></div></div></div></div>`;
         }
-        function generateProjectsContent() {
-    return `
-    <div class="project-grid">
-        <div class="project-card">
-            <img src="cbir.png" alt="Content-Based Image Retrieval" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">Content-Based Image Retrieval</h3>
-                <p class="project-description">An image retrieval system using SIFT & ORB algorithms to fetch visually similar images from a dataset of 8000+ entries.</p>
-                <div class="project-tags"><span class="project-tag">OpenCV</span><span class="project-tag">Python</span><span class="project-tag">React.js</span><span class="project-tag">Flask</span></div>
-                <div class="project-links"><a href="https://github.com/keshav6740/Content-Based-Image-Retrieval" class="project-link">GitHub Repo</a></div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="stock.png" alt="Stock Market Analysis" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">Stock Market Prediction with Big Data</h3>
-                <p class="project-description">A real-time NIFTY 50 stock market prediction platform using Hadoop, Kafka, and Apache Spark with a Monte Carlo simulation.</p>
-                <div class="project-tags"><span class="project-tag">Hadoop</span><span class="project-tag">Kafka</span><span class="project-tag">Spark</span><span class="project-tag">HBase</span></div>
-                <div class="project-links"><a href="#" class="project-link">GitHub Repo</a></div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="image.png" alt="Gym Management System" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">Gym Management System</h3>
-                <p class="project-description">A full-stack web app to automate scheduling, billing, and member management for gyms, improving efficiency by 25%.</p>
-                <div class="project-tags"><span class="project-tag">Node.js</span><span class="project-tag">JavaScript</span><span class="project-tag">SQL</span><span class="project-tag">HTML/CSS</span></div>
-                <div class="project-links"><a href="https://github.com/keshav6740/Gym-Management-System" class="project-link">GitHub Repo</a></div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="music.png" alt="Smart Music Genre Classification" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">Smart Music Genre Classification</h3>
-                <p class="project-description">A deep learning model trained on the GTZAN dataset to classify music into genres based on audio features.</p>
-                <div class="project-tags"><span class="project-tag">Deep Learning</span><span class="project-tag">Python</span><span class="project-tag">GTZAN</span><span class="project-tag">TensorFlow</span></div>
-                <div class="project-links"><a href="https://github.com/keshav6740/Smart-Music-Genre-Classification" class="project-link">GitHub Repo</a></div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="rtca.jpg" alt="Real-Time Chat App" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">Real-Time Chat App with Redis</h3>
-                <p class="project-description">A Django-based messaging platform using Redis pub-sub for real-time communication between users.</p>
-                <div class="project-tags"><span class="project-tag">Django</span><span class="project-tag">Redis</span><span class="project-tag">WebSockets</span><span class="project-tag">Python</span></div>
-                <div class="project-links"><a href="https://github.com/krtn2902/realtime-conversation-app" class="project-link">GitHub Repo</a></div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <img src="nexus.png" alt="Nexus AI Platform" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">Nexus: AI Business Management</h3>
-                <p class="project-description">A modern AI-powered SaaS platform to manage business operations, enhance collaboration, and streamline tasks across departments.</p>
-                <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Node.js</span><span class="project-tag">MongoDB</span><span class="project-tag">AI</span></div>
-                <div class="project-links"><a href="https://nexus-business-ai-management.vercel.app/" class="project-link">Product Page</a><a href="https://github.com/keshav6740/Nexus-Business-AI-Management" class="project-link">GitHub Repo</a></div>
-            </div>
-        </div>
-    </div>`;
-}
-
-         function generateContactContent() {
-             // IMPORTANT: Update the resume link here too if using the contact card for it
-             const resumeUrl = 'resume.pdf';
-             return `
-            <div class="contact-container">
-                <h2 class="contact-title">Establish Comms Link</h2>
-                <p>Open channels for collaboration, inquiries, or project discussions. Send your transmission below or use the direct links.</p>
-
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-label">Secure Email</div>
-                        <div class="contact-value"><a href="mailto:keshavanjaniagrawal@gmail.com">keshavanjaniagrawal@gmail.com</a></div>
-                    </div>
-                     <div class="contact-item">
-                         <div class="contact-icon">🔗</div>
-                         <div class="contact-label">LinkedIn Profile</div>
-                         <div class="contact-value"><a href="https://linkedin.com/in/keshav-agrawal-607598287/" target="_blank">My LinkedIn</a></div>
-                     </div>
-                     <div class="contact-item">
-                         <div class="contact-icon">🐙</div>
-                         <div class="contact-label">GitHub Repository</div>
-                         <div class="contact-value"><a href="https://github.com/keshav6740" target="_blank">My GitHub</a></div>
-                     </div>
-                      <div class="contact-item">
-                         <div class="contact-icon">📄</div>
-                         <div class="contact-label">Resume/CV</div>
-                         <div class="contact-value"><a href="${resumeUrl}" target="_blank">See Resume</a></div>
-                     </div>
-                </div>
-
-                <div style="margin-top: 40px;" class="contact-form">
-                    <h3 style="color: var(--primary); margin-bottom: 20px;">Direct Transmission</h3>
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Your Callsign / Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Your Secure Comms Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message / Inquiry" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Transmit Securely</button>
-                        <p id="form-status" style="margin-top: 15px; height: 1em; color: var(--secondary);"></p>
-                    </form>
-                    <p style="font-size: 0.8em; color: rgba(255,255,255,0.5); margin-top: 10px;"></p>
-                </div>
-            </div>`;
+        function generateProjectsContent() { /* ... (same as before) ... */
+            return `<div class="project-grid"> <div class="project-card"><img src="cbir.png" alt="CBIR" class="project-image"><div class="project-content"><h3 class="project-title">Content-Based Image Retrieval</h3><p class="project-description">SIFT & ORB based system fetching similar images from 8000+ entries.</p><div class="project-tags"><span class="project-tag">OpenCV</span><span class="project-tag">Python</span><span class="project-tag">React</span><span class="project-tag">Flask</span><span class="project-tag">Django</span></div><div class="project-links"><a href="https://github.com/keshav6740/Content-Based-Image-Retrieval" target="_blank" class="project-link">GitHub Repo</a></div></div></div> <div class="project-card"><img src="stock.png" alt="Stock Market" class="project-image"><div class="project-content"><h3 class="project-title">Stock Market Prediction</h3><p class="project-description">Real-time NIFTY 50 prediction using Hadoop, Kafka, Spark, Monte Carlo.</p><div class="project-tags"><span class="project-tag">Hadoop</span><span class="project-tag">Kafka</span><span class="project-tag">Spark</span><span class="project-tag">HBase</span><span class="project-tag">Spring Boot</span></div><div class="project-links"><a href="#" class="project-link">(Private Repo)</a></div></div></div> <div class="project-card"><img src="image.png" alt="Gym System" class="project-image"><div class="project-content"><h3 class="project-title">Gym Management System</h3><p class="project-description">Full-stack app automating scheduling, billing, members (25% efficiency gain).</p><div class="project-tags"><span class="project-tag">Node.js</span><span class="project-tag">JS</span><span class="project-tag">SQL</span><span class="project-tag">HTML/CSS</span></div><div class="project-links"><a href="https://github.com/keshav6740/Gym-Management-System" target="_blank" class="project-link">GitHub Repo</a></div></div></div> <div class="project-card"><img src="music.png" alt="Music Genre" class="project-image"><div class="project-content"><h3 class="project-title">Music Genre Classification</h3><p class="project-description">Deep learning model trained on GTZAN dataset for audio genre classification.</p><div class="project-tags"><span class="project-tag">Deep Learning</span><span class="project-tag">Python</span><span class="project-tag">GTZAN</span><span class="project-tag">TensorFlow</span></div><div class="project-links"><a href="https://github.com/keshav6740/Smart-Music-Genre-Classification" target="_blank" class="project-link">GitHub Repo</a></div></div></div> <div class="project-card"><img src="rtca.jpg" alt="Chat App" class="project-image"><div class="project-content"><h3 class="project-title">Real-Time Chat App</h3><p class="project-description">Django messaging platform using Redis pub-sub for live communication.</p><div class="project-tags"><span class="project-tag">Django</span><span class="project-tag">Redis</span><span class="project-tag">WebSockets</span><span class="project-tag">Python</span></div><div class="project-links"><a href="https://github.com/krtn2902/realtime-conversation-app" target="_blank" class="project-link">GitHub Repo</a></div></div></div> <div class="project-card"><img src="nexus.png" alt="Nexus AI" class="project-image"><div class="project-content"><h3 class="project-title">Nexus: AI Business Management</h3><p class="project-description">Modern AI-powered SaaS platform to manage operations and collaboration.</p><div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Node.js</span><span class="project-tag">MongoDB</span><span class="project-tag">AI</span></div><div class="project-links"><a href="https://nexus-business-ai-management.vercel.app/" target="_blank" class="project-link">Product Page</a><a href="https://github.com/keshav6740/Nexus-Business-AI-Management" target="_blank" class="project-link">GitHub Repo</a></div></div></div> </div>`;
         }
-         function handleFormSubmit(event) {
-             event.preventDefault();
-             const formStatus = document.getElementById('form-status');
-             if(formStatus){
-                 console.log("Contact form submitted.");
-                 formStatus.style.opacity = '0';
-                 setTimeout(() => {
-                    formStatus.textContent = 'Transmitting...'; formStatus.style.opacity = '1';
-                 }, 300);
-                 setTimeout(() => {
-                     formStatus.style.opacity = '0';
-                     setTimeout(() => {
-                         formStatus.textContent = 'Transmission Received!'; formStatus.style.opacity = '1';
-                     }, 300);
-                 }, 2000);
-             }
-         }
+        function generateContactContent() { /* ... (same as before) ... */
+             const resumeUrl = 'resume.pdf'; const formspreeEndpoint = 'https://formspree.io/f/movdjjbq';
+             return `<div class="contact-container"><h2 class="contact-title">Establish Comms Link</h2><p>Open channels for collaboration, inquiries, or project discussions. Send transmission below or use direct links.</p><div class="contact-grid"> <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-label">Secure Email</div><div class="contact-value"><a href="mailto:keshavanjaniagrawal@gmail.com">keshavanjaniagrawal@gmail.com</a></div></div> <div class="contact-item"><div class="contact-icon">🔗</div><div class="contact-label">LinkedIn Profile</div><div class="contact-value"><a href="https://linkedin.com/in/keshav-agrawal-607598287/" target="_blank">My LinkedIn</a></div></div> <div class="contact-item"><div class="contact-icon">🐙</div><div class="contact-label">GitHub Repository</div><div class="contact-value"><a href="https://github.com/keshav6740" target="_blank">My GitHub</a></div></div> <div class="contact-item"><div class="contact-icon">📄</div><div class="contact-label">Resume/CV</div><div class="contact-value"><a href="${resumeUrl}" target="_blank">See Resume</a></div></div></div><div style="margin-top: 40px;" class="contact-form"><h3 style="color: var(--primary); margin-bottom: 20px;">Direct Transmission</h3><form id="contactForm" action="${formspreeEndpoint}" method="POST"><div class="mb-3"><input type="text" class="form-control" name="name" placeholder="Your Callsign / Name" required></div><div class="mb-3"><input type="email" class="form-control" name="_replyto" placeholder="Your Secure Comms Email" required></div><div class="mb-3"><textarea class="form-control" name="message" rows="5" placeholder="Your Message / Inquiry" required></textarea></div><button type="submit" class="btn btn-primary">Transmit Securely</button><p id="form-status" style="margin-top: 15px; min-height: 1.2em; color: var(--secondary);"></p></form></div></div>`;
+        }
 
+        // --- Form Submission Handler ---
+        function handleFormSubmit(event) { /* ... (same as before) ... */
+             event.preventDefault(); const form = event.target; const statusElement = document.getElementById('form-status'); const submitButton = form.querySelector('button[type="submit"]'); if (!statusElement) return; const formData = new FormData(form); if(submitButton) submitButton.disabled = true; statusElement.style.opacity = '0'; setTimeout(() => { statusElement.textContent = 'Transmitting...'; statusElement.style.color = 'var(--tertiary)'; statusElement.style.opacity = '1'; }, 150); fetch(form.action, { method: form.method, body: formData, headers: { 'Accept': 'application/json' } }).then(response => { statusElement.style.opacity = '0'; setTimeout(() => { if (response.ok) { statusElement.textContent = "Transmission Received! Thanks."; statusElement.style.color = 'var(--primary)'; form.reset(); } else { response.json().then(data => { statusElement.textContent = data.errors ? data.errors.map(error => error.message).join(", ") : "Transmission Error."; statusElement.style.color = 'var(--secondary)'; }).catch(error => { statusElement.textContent = "Transmission Error (Parsing)."; statusElement.style.color = 'var(--secondary)'; }); } statusElement.style.opacity = '1'; if(submitButton) submitButton.disabled = false; }, 300); }).catch(error => { console.error("Fetch Error:", error); statusElement.style.opacity = '0'; setTimeout(() => { statusElement.textContent = "Network Error. Check connection."; statusElement.style.color = 'var(--secondary)'; statusElement.style.opacity = '1'; if(submitButton) submitButton.disabled = false; }, 300); });
+        }
 
         // --- Utility Functions ---
-        function scrollToBottom(element) {
-            if (element) {
-                // Debounce or throttle this if it causes performance issues on rapid output
-                 element.scrollTo({ top: element.scrollHeight, behavior: 'smooth' });
-            }
+        function scrollToBottom(element) { /* ... (same as before) ... */
+             if (element) { element.scrollTo({ top: element.scrollHeight, behavior: 'smooth' }); }
         }
-
-        function playTypingSound(volume = 0.05) {
-            try {
-                // Simple click/blip sound
-                const audio = new Audio('data:audio/wav;base64,UklGRkQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQQAAAAAAAD//w==');
-                audio.volume = Math.max(0, Math.min(1, volume));
-                audio.play().catch(()=>{}); // Suppress play errors
-             } catch (e) { /* Ignore if Audio object fails */ }
+        function playTypingSound(volume = 0.05) { /* ... (same as before) ... */
+             try { const audio = new Audio('data:audio/wav;base64,UklGRkQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQQAAAAAAAD//w=='); audio.volume = Math.max(0, Math.min(1, volume)); audio.play().catch(()=>{}); } catch (e) {}
         }
-
-        function resetInactivityTimer() {
-            clearTimeout(inactivityTimer);
-            inactivityTimer = setTimeout(() => {
-                 // Check if terminal is mostly empty AND input is not focused
-                 const isTerminalIdle = commandHistory.children.length <= 2 && !commandHistory.textContent.trim().split('\n').some(line => line.includes('visitor@portfolio:~$'));
-                 if (isTerminalIdle && document.activeElement !== commandInput) {
-                     console.log("Inactivity detected, showing help reminder.");
-                     const helpReminder = document.createElement('div');
-                     helpReminder.className = 'help-reminder';
-                     helpReminder.style.opacity = '0';
-                     helpReminder.innerHTML = `<p><span style="color: var(--primary);">System Idle:</span> Type <span class="command-suggestion">help</span> or use quick nav.</p>`;
-                     commandHistory.appendChild(helpReminder);
-                     scrollToBottom(terminalBody);
-                     setTimeout(() => { helpReminder.style.transition = 'opacity 0.5s'; helpReminder.style.opacity = '1'; }, 100);
-                 }
-            }, 25000); // Increased inactivity time to 25 seconds
+        function resetInactivityTimer() { /* ... (same as before) ... */
+             clearTimeout(inactivityTimer); inactivityTimer = setTimeout(() => { const isTerminalIdle = commandHistory.children.length <= 2 && !commandHistory.textContent.trim().split('\n').some(line => line.includes('visitor@portfolio:~$')); const isOverlayVisible = (contentDisplay && contentDisplay.style.display === 'flex') || (tutorialOverlay && tutorialOverlay.style.display === 'flex'); if (isTerminalIdle && document.activeElement !== commandInput && !isOverlayVisible && !commandInput.disabled) { console.log("Inactivity detected, showing help reminder."); const helpReminder = document.createElement('div'); helpReminder.className = 'help-reminder'; helpReminder.style.opacity = '0'; helpReminder.innerHTML = `<p style="margin-top:10px;"><span style="color: var(--primary);">System Idle:</span> Type <span class="command-suggestion">help</span> or use quick nav.</p>`; commandHistory.appendChild(helpReminder); scrollToBottom(terminalBody); setTimeout(() => { helpReminder.style.transition = 'opacity 0.5s'; helpReminder.style.opacity = '1'; }, 100); setTimeout(() => { if(helpReminder.parentNode) { helpReminder.style.opacity = '0'; setTimeout(() => { if(helpReminder.parentNode) helpReminder.remove(); }, 500); } }, 10000); } }, 30000);
         }
 
     </script>
