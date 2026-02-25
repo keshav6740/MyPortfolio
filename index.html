@@ -3,78 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keshav Agrawal - Software Engineer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Keshav Agrawal - Software Engineer [Project Insanity]</title>
+    <meta name="description" content="Keshav Agrawal is a Software Engineer and CS & AI student building full-stack, AI/ML, and big data solutions.">
+    <meta property="og:title" content="Keshav Agrawal - Software Engineer">
+    <meta property="og:description" content="Portfolio showcasing full-stack, AI/ML, and big data projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://keshav.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Keshav Agrawal - Software Engineer">
+    <meta name="twitter:description" content="Portfolio showcasing full-stack, AI/ML, and big data projects.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Overlays -->
     <div id="loading-screen">
         <div class="loading-container">
             <div class="terminal-loader">
-                <div class="terminal-header">
-                    <div class="terminal-controls">
-                        <span class="control close"></span>
-                        <span class="control minimize"></span>
-                        <span class="control maximize"></span>
-                    </div>
-                    <div class="terminal-title">keshav@portfolio:~$</div>
-                </div>
-                <div class="terminal-body">
-                    <div class="loading-text">
-                        <span class="prompt">$</span> <span class="command">initializing_portfolio.exe</span>
-                        <div class="loading-dots">
-                            <span>.</span><span>.</span><span>.</span>
-                        </div>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-bar"></div>
-                        <div class="progress-text">0%</div>
-                    </div>
-                </div>
+                <div class="terminal-header"><div class="terminal-controls"><span class="control close"></span><span class="control minimize"></span><span class="control maximize"></span></div><div class="terminal-title">keshav@portfolio:~$</div></div>
+                <div class="terminal-body"><div class="loading-text"><span class="prompt">$</span> <span class="command">initializing_insanity.exe</span><div class="loading-dots"><span>.</span><span>.</span><span>.</span></div></div><div class="progress-container"><div class="progress-bar"></div><div class="progress-text">0%</div></div></div>
             </div>
         </div>
     </div>
-
-    <!-- Matrix Background -->
+    <div id="grid-overlay"></div>
     <canvas id="matrix-canvas"></canvas>
 
     <!-- Navigation -->
-    <nav class="navbar-custom">
+    <nav class="navbar-custom" id="navbar">
         <div class="nav-container">
-            <div class="nav-brand">
-                <div class="brand-text">
-                    <span class="brand-bracket">{</span>
-                    <span class="brand-name">Keshav</span>
-                    <span class="brand-dot">.</span>
-                    <span class="brand-extension">.dev</span>
-                    <span class="brand-bracket">}</span>
-                </div>
-            </div>
+            <div class="nav-brand"><div class="brand-text"><span class="brand-bracket">{</span><span class="brand-name">Keshav</span><span class="brand-dot">.</span><span class="brand-extension">dev</span><span class="brand-bracket">}</span></div></div>
             <div class="nav-menu" id="nav-menu">
-                <div class="nav-item">
-                    <a href="#home" class="nav-link" data-text="01">Home</a>
-                </div>
-                <div class="nav-item">
-                    <a href="#about" class="nav-link" data-text="02">About</a>
-                </div>
-                <div class="nav-item">
-                    <a href="#skills" class="nav-link" data-text="03">Skills</a>
-                </div>
-                <div class="nav-item">
-                    <a href="#projects" class="nav-link" data-text="04">Projects</a>
-                </div>
-                <div class="nav-item">
-                    <a href="#contact" class="nav-link" data-text="05">Contact</a>
-                </div>
+                <div class="nav-item"><a href="#home" class="nav-link" data-text="01">Home</a></div>
+                <div class="nav-item"><a href="#about" class="nav-link" data-text="02">About</a></div>
+                <div class="nav-item"><a href="#skills" class="nav-link" data-text="03">Skills</a></div>
+                <div class="nav-item"><a href="#projects" class="nav-link" data-text="04">Projects</a></div>
+                <div class="nav-item"><a href="#contact" class="nav-link" data-text="05">Contact</a></div>
+                <span class="nav-highlight"></span>
             </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
@@ -84,203 +51,50 @@
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="hero-intro">
-                        <div class="intro-line">
-                            <span class="line-number">01</span>
-                            <span class="code-comment">// Welcome to my digital workspace</span>
-                        </div>
-                        <div class="intro-line">
-                            <span class="line-number">02</span>
-                            <span class="code-keyword">const</span>
-                            <span class="code-variable">developer</span>
-                            <span class="code-operator">=</span>
-                            <span class="code-string">"Keshav Agrawal"</span>
-                        </div>
-                        <div class="intro-line">
-                            <span class="line-number">03</span>
-                            <span class="code-keyword">const</span>
-                            <span class="code-variable">passion</span>
-                            <span class="code-operator">=</span>
-                            <span class="code-array">[</span><span class="typing-skills">"Full-Stack Dev"</span><span class="code-array">]</span>
-                        </div>
+                        <div class="intro-line"><span class="line-number">01</span><span class="code-comment">// Welcome to my digital workspace</span></div>
+                        <div class="intro-line"><span class="line-number">02</span><span class="code-keyword">const</span><span class="code-variable">developer</span><span class="code-operator">=</span><span class="code-string">"Keshav Agrawal"</span></div>
+                        <div class="intro-line"><span class="line-number">03</span><span class="code-keyword">const</span><span class="code-variable">passion</span><span class="code-operator">=</span><span class="code-array">[</span><span class="typing-skills">"Full-Stack Dev"</span><span class="code-array">]</span></div>
                     </div>
-                    
-                    <div class="hero-title">
-                        <h1 class="main-title">
-                            <span class="title-line">Engineering Impactful</span>
-                            <span class="title-line highlight-text">Tech Solutions</span>
-                            <span class="title-line">For The Future</span>
-                        </h1>
-                    </div>
-
-                    <div class="hero-description">
-                        <p>CS & AI student specializing in Machine Learning, Big Data, and full-stack web development. I transform complex problems into elegant, scalable technology solutions.</p>
-                    </div>
-
+                    <div class="hero-title"><h1 class="main-title glitch-container" data-glitch-insane="Engineering Impactful Tech Solutions For The Future"><span class="title-line">Engineering Impactful</span><span class="title-line highlight-text">Tech Solutions</span><span class="title-line">For The Future</span></h1></div>
+                    <div class="hero-description"><p>CS & AI student specializing in Machine Learning, Big Data, and full-stack web development. I transform complex problems into elegant, scalable technology solutions.</p></div>
                     <div class="hero-actions">
-                        <a href="resume.pdf" target="_blank" class="btn-primary" id="explore-btn">
-                            <span class="btn-text">View My Resume</span>
-                            <div class="btn-particles"></div>
-                        </a>
-                        <a href="#contact" class="btn-secondary" id="contact-btn">
-                            <span class="btn-text">Get In Touch</span>
-                            <i class="fas fa-arrow-right btn-icon"></i>
-                        </a>
+                        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" id="explore-btn"><span class="btn-text">View My Resume</span><div class="btn-particles"></div></a>
+                        <a href="#contact" class="btn-secondary" id="contact-btn"><span class="btn-text">Get In Touch</span><i class="fas fa-arrow-right btn-icon"></i></a>
                     </div>
-
                     <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="15">0</div>
-                            <div class="stat-label">Projects Delivered</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="3">0</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="100">0</div>
-                            <div class="stat-label">Commitment</div>
-                            <span class="stat-unit">%</span>
-                        </div>
+                        <div class="stat-item"><div class="stat-number" data-count="15">0<span class="stat-unit">+</span></div><div class="stat-label">Projects Built</div></div>
+                        <div class="stat-item"><div class="stat-number" data-count="3">0</div><div class="stat-label">Core Domains</div></div>
+                        <div class="stat-item"><div class="stat-number" data-count="8">0</div><div class="stat-label">End-to-End Deployments</div></div>
                     </div>
                 </div>
-
-                <div class="hero-visual">
-                    <div class="code-editor">
-                        <div class="editor-header">
-                            <div class="editor-tabs">
-                                <div class="tab active">
-                                    <i class="fab fa-js-square"></i>
-                                    <span>portfolio.js</span>
-                                </div>
-                                <div class="tab">
-                                    <i class="fab fa-react"></i>
-                                    <span>App.jsx</span>
-                                </div>
-                                <div class="tab">
-                                    <i class="fab fa-python"></i>
-                                    <span>model.py</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="editor-body">
-                            <div class="code-lines" id="code-animation"></div>
-                        </div>
+                <div class="hero-visual parallax-container">
+                    <div class="code-editor parallax-element" data-parallax-strength="10">
+                        <div class="editor-header"><div class="editor-tabs"><div class="tab active"><i class="fab fa-js-square"></i><span>portfolio.js</span></div><div class="tab"><i class="fab fa-react"></i><span>App.jsx</span></div><div class="tab"><i class="fab fa-python"></i><span>model.py</span></div></div></div>
+                        <div class="editor-body"><div class="code-lines" id="code-animation"></div></div>
                     </div>
-                    
                     <div class="floating-elements">
-                        <div class="floating-card tech-card" data-tech="React">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <div class="floating-card tech-card" data-tech="Node.js">
-                            <i class="fab fa-node-js"></i>
-                        </div>
-                        <div class="floating-card tech-card" data-tech="Python">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="floating-card tech-card" data-tech="Docker">
-                            <i class="fab fa-docker"></i>
-                        </div>
-                        <div class="floating-card tech-card" data-tech="AWS">
-                            <i class="fab fa-aws"></i>
-                        </div>
+                        <div class="floating-card tech-card parallax-element" data-parallax-strength="-25" id="tech-icon-1"><i class="fab fa-react"></i></div>
+                        <div class="floating-card tech-card parallax-element" data-parallax-strength="30" id="tech-icon-2"><i class="fab fa-node-js"></i></div>
+                        <div class="floating-card tech-card parallax-element" data-parallax-strength="-20" id="tech-icon-3"><i class="fab fa-python"></i></div>
+                        <div class="floating-card tech-card parallax-element" data-parallax-strength="35" id="tech-icon-4"><i class="fab fa-docker"></i></div>
+                        <div class="floating-card tech-card parallax-element" data-parallax-strength="-30" id="tech-icon-5"><i class="fab fa-aws"></i></div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-text">Scroll to explore</div>
-            <div class="scroll-line"></div>
-        </div>
+        <div class="scroll-indicator"><div class="scroll-text">Scroll to explore</div><div class="scroll-line"></div></div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container-fluid">
-            <div class="section-header">
-                <div class="section-number">02</div>
-                <h2 class="section-title">About Me</h2>
-                <div class="section-subtitle">The story behind the code</div>
-            </div>
-
-            <div class="about-grid">
+            <div class="section-header"><div class="section-number">02</div><h2 class="section-title reveal-title">About Me</h2><div class="section-subtitle">The story behind the code</div></div>
+            <div class="about-grid" id="about-sticky-container">
                 <div class="about-content">
-                    <div class="about-text">
-                        <div class="text-block">
-                            <h3>Passionate Problem Solver</h3>
-                            <p>As a passionate Computer Science & AI student at MIT Manipal, I am deeply focused on creating impactful technology solutions. My strong foundation in Machine Learning, Computer Vision, and Big Data Analytics drives both my academic and project-based success.</p>
-                        </div>
-                        
-                        <div class="text-block">
-                            <h3>Technical Excellence & Leadership</h3>
-                            <p>I thrive at the intersection of technology and user experience. During my time at OnePlus, I tested OS updates and prototype hardware, directly contributing to enhanced product quality. My projects, from a high-accuracy image retrieval system to a stock prediction model using Big Data tools, showcase my technical depth and leadership abilities. Whether building scalable systems or mentoring peers, I bring energy, adaptability, and a relentless drive for excellence to every challenge.</p>
-                        </div>
-
-                        <div class="expertise-grid">
-                            <div class="expertise-item">
-                                <i class="fas fa-code"></i>
-                                <div>
-                                    <h4>Frontend Development</h4>
-                                    <p>React, Next.js, JS/TS, HTML/CSS</p>
-                                </div>
-                            </div>
-                            <div class="expertise-item">
-                                <i class="fas fa-server"></i>
-                                <div>
-                                    <h4>Backend Development</h4>
-                                    <p>Node.js, Python, SQL, MongoDB</p>
-                                </div>
-                            </div>
-                            <div class="expertise-item">
-                                <i class="fas fa-robot"></i>
-                                <div>
-                                    <h4>AI & Big Data</h4>
-                                    <p>OpenCV, TensorFlow, Hadoop, Spark</p>
-                                </div>
-                            </div>
-                            <div class="expertise-item">
-                                <i class="fas fa-cloud"></i>
-                                <div>
-                                    <h4>Tools & DevOps</h4>
-                                    <p>Render, AWS, Git, CI/CD, Linux</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="about-text"><div class="text-block"><h3>Practical Software Engineering</h3><p>I am a Computer Science & AI student at MIT Manipal focused on building reliable, user-centered software. My core interests are full-stack development, machine learning applications, and data-driven systems.</p></div><div class="text-block"><h3>Internship Experience</h3><p>During my Software Engineering internship at Adani Green Energy Ltd, I built a Django-based web portal for internal workflows and delivered a PDF automation project that reduced repetitive manual work. I focus on writing clean code, shipping useful features, and improving system efficiency.</p></div><div class="expertise-grid"><div class="expertise-item"><i class="fas fa-code"></i><div><h4>Frontend Development</h4><p>React, Next.js, JS/TS, HTML/CSS</p></div></div><div class="expertise-item"><i class="fas fa-server"></i><div><h4>Backend Development</h4><p>Node.js, Python, SQL, MongoDB</p></div></div><div class="expertise-item"><i class="fas fa-robot"></i><div><h4>AI & Big Data</h4><p>OpenCV, TensorFlow, Hadoop, Spark</p></div></div><div class="expertise-item"><i class="fas fa-cloud"></i><div><h4>Tools & DevOps</h4><p>AWS, Agentic AIs, LLMs, Git, CI/CD, Linux</p></div></div></div></div>
                 </div>
-
-                <div class="about-visual">
-                    <div class="profile-container">
-                        <div class="profile-image">
-                            <img src="me.jpg" alt="Keshav Agrawal">
-                            <div class="profile-border"></div>
-                        </div>
-                        
-                        <div class="achievement-cards">
-                            <div class="achievement-card">
-                                <i class="fas fa-briefcase"></i>
-                                <div class="achievement-text">
-                                    <div class="achievement-title">OnePlus Beta Tester
-                                    </div>
-                                    <div class="achievement-desc">Product & OS Testing</div>
-                                </div>
-                            </div>
-                            <div class="achievement-card">
-                                <i class="fas fa-users"></i>
-                                <div class="achievement-text">
-                                    <div class="achievement-title">HR Head</div>
-                                    <div class="achievement-desc">Photography Club @ Manipal</div>
-                                </div>
-                            </div>
-                            <div class="achievement-card">
-                                <i class="fas fa-star"></i>
-                                <div class="achievement-text">
-                                    <div class="achievement-title">Project Leadership</div>
-                                    <div class="achievement-desc">Leading technical initiatives</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="about-visual" id="about-sticky-visual">
+                    <div class="profile-container"><div class="profile-image"><img src="me.jpg" alt="Keshav Agrawal"><div class="profile-border"></div></div><div class="achievement-cards"><div class="achievement-card"><i class="fas fa-briefcase"></i><div class="achievement-text"><div class="achievement-title">SWE Intern</div><div class="achievement-desc">Adani Green Energy Ltd</div></div></div><div class="achievement-card"><i class="fas fa-mobile-alt"></i><div class="achievement-text"><div class="achievement-title">OnePlus Beta Tester</div><div class="achievement-desc">Product & OS Testing</div></div></div><div class="achievement-card"><i class="fas fa-camera"></i><div class="achievement-text"><div class="achievement-title">Board Member</div><div class="achievement-desc">Photography Club @ Manipal</div></div></div></div></div>
                 </div>
             </div>
         </div>
@@ -289,412 +103,71 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container-fluid">
-            <div class="section-header">
-                <div class="section-number">03</div>
-                <h2 class="section-title">Technical Arsenal</h2>
-                <div class="section-subtitle">Technologies I master</div>
-            </div>
-
+            <div class="section-header"><div class="section-number">03</div><h2 class="section-title reveal-title">Technical Arsenal</h2><div class="section-subtitle">Technologies I master</div></div>
             <div class="skills-container">
                 <div class="skills-grid">
-                    <div class="skill-category" data-category="frontend">
-                        <div class="category-header">
-                            <i class="fas fa-palette"></i>
-                            <h3>Frontend</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item" data-level="95">
-                                <div class="skill-info">
-                                    <span class="skill-name">HTML5 / CSS3</span>
-                                    <span class="skill-level">95%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="93">
-                                <div class="skill-info">
-                                    <span class="skill-name">JavaScript / TypeScript</span>
-                                    <span class="skill-level">93%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="92">
-                                <div class="skill-info">
-                                    <span class="skill-name">React / Redux / Next.js</span>
-                                    <span class="skill-level">92%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="90">
-                                <div class="skill-info">
-                                    <span class="skill-name">Tailwind CSS / Bootstrap</span>
-                                    <span class="skill-level">90%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-category="backend">
-                        <div class="category-header">
-                            <i class="fas fa-server"></i>
-                            <h3>Backend</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item" data-level="94">
-                                <div class="skill-info">
-                                    <span class="skill-name">Node.js / Express.js</span>
-                                    <span class="skill-level">94%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="85">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python (Flask / Django)</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="88">
-                                <div class="skill-info">
-                                    <span class="skill-name">MongoDB / Redis</span>
-                                    <span class="skill-level">88%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="85">
-                                <div class="skill-info">
-                                    <span class="skill-name">PostgreSQL / MySQL</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-category="devops">
-                        <div class="category-header">
-                            <i class="fas fa-cogs"></i>
-                            <h3>Tools & Infrastructure</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item" data-level="96">
-                                <div class="skill-info">
-                                    <span class="skill-name">Git / GitHub / CI/CD</span>
-                                    <span class="skill-level">96%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="75">
-                                <div class="skill-info">
-                                    <span class="skill-name">AWS (EC2, S3, RDS, etc)</span>
-                                    <span class="skill-level">75%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                            <div class="skill-item" data-level="80">
-                                <div class="skill-info">
-                                    <span class="skill-name">Linux / Bash Scripting</span>
-                                    <span class="skill-level">80%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress"></div></div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="skill-category" data-category="frontend"><div class="category-header"><i class="fas fa-palette"></i><h3>Frontend</h3></div><div class="skills-list"><div class="skill-item" data-level="95"><div class="skill-info"><span class="skill-name">HTML5 / CSS3</span><span class="skill-level">95%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="93"><div class="skill-info"><span class="skill-name">JavaScript / TypeScript</span><span class="skill-level">93%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="92"><div class="skill-info"><span class="skill-name">React / Redux / Next.js</span><span class="skill-level">92%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="90"><div class="skill-info"><span class="skill-name">Tailwind CSS / Bootstrap</span><span class="skill-level">90%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div></div></div>
+                    <div class="skill-category" data-category="backend"><div class="category-header"><i class="fas fa-server"></i><h3>Backend</h3></div><div class="skills-list"><div class="skill-item" data-level="94"><div class="skill-info"><span class="skill-name">Node.js / Express.js</span><span class="skill-level">94%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="85"><div class="skill-info"><span class="skill-name">Python (Flask / Django)</span><span class="skill-level">85%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="88"><div class="skill-info"><span class="skill-name">MongoDB / Redis</span><span class="skill-level">88%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="85"><div class="skill-info"><span class="skill-name">PostgreSQL / MySQL</span><span class="skill-level">85%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div></div></div>
+                    <div class="skill-category" data-category="devops"><div class="category-header"><i class="fas fa-cogs"></i><h3>Tools & Infrastructure</h3></div><div class="skills-list"><div class="skill-item" data-level="96"><div class="skill-info"><span class="skill-name">Git / GitHub / CI/CD</span><span class="skill-level">96%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="85"><div class="skill-info"><span class="skill-name">Agentic AIs / LLMs</span><span class="skill-level">85%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="75"><div class="skill-info"><span class="skill-name">AWS (EC2, S3, RDS, etc)</span><span class="skill-level">75%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div><div class="skill-item" data-level="80"><div class="skill-info"><span class="skill-name">Linux / Bash Scripting</span><span class="skill-level">80%</span></div><div class="skill-bar"><div class="skill-progress"></div></div></div></div></div>
                 </div>
-
-                <div class="tech-radar">
-                    <div class="radar-container">
-                        <div class="radar-grid"></div>
-                        <div class="radar-items">
-                            <div class="radar-item" data-tech="React" style="--x: 80%; --y: 20%;"><div class="radar-dot"></div><div class="radar-label">React</div></div>
-                            <div class="radar-item" data-tech="Node.js" style="--x: 70%; --y: 60%;"><div class="radar-dot"></div><div class="radar-label">Node.js</div></div>
-                            <div class="radar-item" data-tech="AWS" style="--x: 30%; --y: 40%;"><div class="radar-dot"></div><div class="radar-label">AWS</div></div>
-                            <div class="radar-item" data-tech="Python" style="--x: 40%; --y: 75%;"><div class="radar-dot"></div><div class="radar-label">Python</div></div>
-                            <!-- <div class="radar-item" data-tech="Docker" style="--x: 60%; --y: 90%;"><div class="radar-dot"></div><div class="radar-label">Docker</div></div> -->
-                        </div>
-                    </div>
-                </div>
+                <div class="tech-radar"><div class="radar-container"><div class="radar-grid"></div><div class="radar-items"><div class="radar-item" style="--x: 80%; --y: 20%;"><div class="radar-dot"></div><div class="radar-label">React</div></div><div class="radar-item" style="--x: 70%; --y: 60%;"><div class="radar-dot"></div><div class="radar-label">Node.js</div></div><div class="radar-item" style="--x: 30%; --y: 40%;"><div class="radar-dot"></div><div class="radar-label">Agentic AI</div></div><div class="radar-item" style="--x: 40%; --y: 75%;"><div class="radar-dot"></div><div class="radar-label">Python</div></div><div class="radar-item" style="--x: 60%; --y: 90%;"><div class="radar-dot"></div><div class="radar-label">LLMs</div></div></div></div></div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
-        <div class="container-fluid">
-            <div class="section-header">
-                <div class="section-number">04</div>
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="section-subtitle">Showcasing innovation and excellence</div>
+        <div id="projects-horizontal-container">
+            <div class="project-panel project-panel-intro">
+                <div class="section-header"><div class="section-number">04</div><h2 class="section-title reveal-title">Featured Projects</h2><div class="section-subtitle">Showcasing innovation and excellence</div></div>
+                <div class="projects-filter"><button class="filter-btn active" data-filter="all">All Projects</button><button class="filter-btn" data-filter="ai">AI/ML</button><button class="filter-btn" data-filter="web">Web Apps</button><button class="filter-btn" data-filter="big-data">Big Data</button></div>
             </div>
-
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
-                <button class="filter-btn" data-filter="web">Web Apps</button>
-                <button class="filter-btn" data-filter="big-data">Big Data</button>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card" data-category="ai">
-                    <div class="project-image">
-                        <img src="cbir.png" alt="Content-Based Image Retrieval" class="project-image-fill">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Content-Based Image Retrieval</h3>
-                                <p>SIFT & ORB based system fetching similar images from 8000+ entries.</p>
-                                <div class="project-tech"><span>OpenCV</span><span>Python</span><span>React</span><span>Flask</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/keshav6740/Content-Based-Image-Retrieval" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-category">AI / Computer Vision</div>
-                        <h3 class="project-title">Content-Based Image Retrieval</h3>
-                        <p class="project-description">Developed a high-accuracy image retrieval system using SIFT & ORB algorithms.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="big-data">
-                    <div class="project-image">
-                        <img src="stock.png" alt="Stock Market Prediction" class="project-image-fill">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Stock Market Prediction</h3>
-                                <p>Real-time NIFTY 50 prediction using Hadoop, Kafka, Spark, & Monte Carlo simulation.</p>
-                                <div class="project-tech"><span>Hadoop</span><span>Kafka</span><span>Spark</span><span>HBase</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="#" class="project-btn"><i class="fas fa-lock"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-category">Big Data & Analytics</div>
-                        <h3 class="project-title">Stock Market Prediction</h3>
-                        <p class="project-description">Engineered a real-time prediction pipeline for NIFTY 50 index. (Private Repo)</p>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="nexus.png" alt="Nexus AI Management" class="project-image-fill">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Nexus: AI Business Management</h3>
-                                <p>Modern AI-powered SaaS platform to manage business operations and collaboration.</p>
-                                <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span><span>AI</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://nexus-business-ai-management.vercel.app/" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="https://github.com/keshav6740/Nexus-Business-AI-Management" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-category">SaaS Web Application</div>
-                        <h3 class="project-title">Nexus: AI Business Management</h3>
-                        <p class="project-description">A modern AI-powered SaaS platform for business operations and collaboration.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="rtca.jpg" alt="Real-Time Chat App" class="project-image-fill">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Real-Time Chat App</h3>
-                                <p>Django messaging platform using Redis pub-sub for live communication.</p>
-                                <div class="project-tech"><span>Django</span><span>Redis</span><span>WebSockets</span><span>Python</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/keshav6740/realtime-conversation-app" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-category">Web Application</div>
-                        <h3 class="project-title">Real-Time Chat App</h3>
-                        <p class="project-description">A real-time messaging platform built with Django and Redis for live pub-sub communication.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="ai">
-                    <div class="project-image">
-                        <img src="music.png" alt="Music Genre Classification" class="project-image-fill">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Music Genre Classification</h3>
-                                <p>Deep learning model trained on GTZAN dataset for audio genre classification.</p>
-                                <div class="project-tech"><span>Deep Learning</span><span>Python</span><span>TensorFlow</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/keshav6740/Smart-Music-Genre-Classification" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-category">AI / Deep Learning</div>
-                        <h3 class="project-title">Music Genre Classification</h3>
-                        <p class="project-description">A deep learning model for classifying music genres from audio files, trained on the GTZAN dataset.</p>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="image.png" alt="Gym Management System" class="project-image-fill">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Gym Management System</h3>
-                                <p>Full-stack app automating scheduling, billing, members (25% efficiency gain).</p>
-                                <div class="project-tech"><span>Node.js</span><span>SQL</span><span>JavaScript</span><span>HTML/CSS</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://gym-management-system-1-s1km.onrender.com/" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="https://github.com/keshav6740/Gym-Management-System" target="_blank" class="project-btn"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-category">Full-Stack Application</div>
-                        <h3 class="project-title">Gym Management System</h3>
-                        <p class="project-description">A comprehensive system to automate scheduling, billing, and member management for gyms.</p>
-                    </div>
-                </div>
+            <div class="project-panel project-panel-grid">
+                <div class="projects-grid" id="projects-grid"></div>
             </div>
         </div>
     </section>
-
+    
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container-fluid">
-            <div class="section-header">
-                <div class="section-number">05</div>
-                <h2 class="section-title">Let's Build Something Amazing</h2>
-                <div class="section-subtitle">Ready to bring your ideas to life</div>
-            </div>
-
+            <div class="section-header"><div class="section-number">05</div><h2 class="section-title reveal-title">Let's Build Something Amazing</h2><div class="section-subtitle">Ready to bring your ideas to life</div></div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="card-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="card-content">
-                            <h3>Email</h3>
-                            <p>keshavanjaniagrawal@gmail.com</p>
-                            <a href="mailto:keshavanjaniagrawal@gmail.com" class="contact-link">Send Message</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="card-content">
-                            <h3>Location</h3>
-                            <p>Manipal, India</p>
-                            <a href="#" class="contact-link">View Area</a>
-                        </div>
-                    </div>
-
-                    <div class="social-section">
-                        <h3>Connect With Me</h3>
-                        <div class="social-links">
-                            <a href="https://github.com/keshav6740" target="_blank" class="social-link">
-                                <i class="fab fa-github"></i><span>GitHub</span>
-                            </a>
-                            <a href="https://linkedin.com/in/keshav-agrawal-sde/" target="_blank" class="social-link">
-                                <i class="fab fa-linkedin"></i><span>LinkedIn</span>
-                            </a>
-                        </div>
-                    </div>
+                    <div class="contact-card"><div class="card-icon"><i class="fas fa-envelope"></i></div><div class="card-content"><h3>Email</h3><p>keshavanjaniagrawal@gmail.com</p><a href="mailto:keshavanjaniagrawal@gmail.com" class="contact-link">Send Message</a></div></div>
+                    <div class="social-section"><h3>Connect With Me</h3><div class="social-links"><a href="https://github.com/keshav6740" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-github"></i><span>GitHub</span></a><a href="https://linkedin.com/in/keshav-agrawal-607598287/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a></div></div>
                 </div>
-
                 <div class="contact-form-container">
                     <form class="contact-form" id="contact-form" action="https://formspree.io/f/movdjjbq" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                            <div class="input-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="_replyto" required>
-                            <div class="input-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                            <div class="input-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                            <div class="input-line"></div>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <span class="btn-text">Send Message</span>
-                            <div class="btn-loader"><div class="loader-dots"><span></span><span></span><span></span></div></div>
-                            <i class="fas fa-paper-plane btn-icon"></i>
-                        </button>
+                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" required><div class="input-line"></div></div>
+                        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="_replyto" required><div class="input-line"></div></div>
+                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" required><div class="input-line"></div></div>
+                        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea><div class="input-line"></div></div>
+                        <button type="submit" class="submit-btn"><span class="btn-text">Send Message</span><div class="btn-loader"><div class="loader-dots"><span></span><span></span><span></span></div></div><i class="fas fa-paper-plane btn-icon"></i></button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container-fluid">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="brand-text">
-                        <span class="brand-bracket">{</span>
-                        <span class="brand-name">Keshav</span>
-                        <span class="brand-dot">.</span>
-                        <span class="brand-extension">.dev</span>
-                        <span class="brand-bracket">}</span>
-                    </div>
-                    <p>Engineering impactful tech solutions</p>
-                </div>
-
+                <div class="footer-brand"><div class="brand-text"><span class="brand-bracket">{</span><span class="brand-name">Keshav</span><span class="brand-dot">.</span><span class="brand-extension">dev</span><span class="brand-bracket">}</span></div><p>Engineering impactful tech solutions</p></div>
                 <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Navigation</h4>
-                        <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Services</h4>
-                        <a href="#">Web Development</a>
-                        <a href="#">AI/ML Solutions</a>
-                        <a href="#">Big Data Analytics</a>
-                        <a href="#">Consulting</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Connect</h4>
-                        <a href="https://github.com/keshav6740" target="_blank">GitHub</a>
-                        <a href="https://linkedin.com/in/keshav-agrawal-sde/" target="_blank">LinkedIn</a>
-                        <a href="mailto:keshavanjaniagrawal@gmail.com">Email</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>© 2024 Keshav Agrawal. All rights reserved.</p>
-                </div>
-                <div class="footer-tech">
-                    <span>Built with</span>
-                    <i class="fas fa-heart"></i>
-                    <span>and cutting-edge technology</span>
+                    <div class="link-group"><h4>Navigation</h4><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+                    <div class="link-group"><h4>Services</h4><a href="#">Web Development</a><a href="#">AI/ML Solutions</a><a href="#">Big Data Analytics</a><a href="#">Consulting</a></div>
+                    <div class="link-group"><h4>Connect</h4><a href="https://github.com/keshav6740" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/keshav-agrawal-607598287/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:keshavanjaniagrawal@gmail.com">Email</a></div>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- System HUD -->
+    <div id="cursor-light"></div>
 
-    <!-- Scripts -->
+
+<!-- Main Script -->
     <script src="script.js"></script>
 </body>
 </html>
