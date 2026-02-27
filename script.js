@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "ai",
             categoryLabel: "AI / Deep Learning",
             title: "Music Genre Classification",
-            image: "music.png",
+            image: "polaroify.png",
             alt: "Music Genre Classification",
             overlayText: "Deep learning model trained on GTZAN dataset for audio genre classification.",
             description: "A deep learning model for classifying music genres from audio files, trained on the GTZAN dataset.",
@@ -78,6 +78,20 @@ document.addEventListener("DOMContentLoaded", () => {
             actions: [
                 { type: "live", url: "https://deeplearning-music-classifier.onrender.com/" },
                 { type: "github", url: "https://github.com/keshav6740/Smart-Music-Genre-Classification" }
+            ]
+        },
+        {
+            category: "web",
+            categoryLabel: "Web App / Creator Tool",
+            title: "Polaroify",
+            image: "music.png",
+            alt: "Polaroify music poster generator",
+            overlayText: "Studio for music posters that turns songs into collectible print-ready polaroids.",
+            description: "Search Spotify tracks, customize templates, colors, fonts, lyrics, and layout, then export high-quality PNGs for gifts, merch drops, and phone covers.",
+            tech: ["Next.js", "Spotify API", "Canvas Export", "Vercel"],
+            actions: [
+                { type: "live", url: "https://polaroify.vercel.app/" },
+                { type: "github", url: "https://github.com/keshav6740/Polaroify" }
             ]
         },
          {
