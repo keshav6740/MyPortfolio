@@ -8,6 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectsGrid = document.getElementById("projects-grid");
 
     const projectsData = [
+        
+        {
+            category: "web",
+            categoryLabel: "Web App / Creator Tool",
+            title: "Polaroify",
+            image: "polaroify.png",
+            alt: "Polaroify music poster generator",
+            overlayText: "Studio for music posters that turns songs into collectible print-ready polaroids.",
+            description: "Search Spotify tracks, customize templates, colors, fonts, lyrics, and layout, then export high-quality PNGs for gifts, merch drops, and phone covers.",
+            tech: ["Next.js", "Spotify API", "Canvas Export", "Vercel"],
+            actions: [
+                { type: "live", url: "https://polaroify.vercel.app/" },
+                { type: "github", url: "https://github.com/keshav6740/Polaroify" }
+            ]
+        },
   {
     category: "web",
     categoryLabel: "Web Gaming Platform",
@@ -78,20 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
             actions: [
                 { type: "live", url: "https://deeplearning-music-classifier.onrender.com/" },
                 { type: "github", url: "https://github.com/keshav6740/Smart-Music-Genre-Classification" }
-            ]
-        },
-        {
-            category: "web",
-            categoryLabel: "Web App / Creator Tool",
-            title: "Polaroify",
-            image: "polaroify.png",
-            alt: "Polaroify music poster generator",
-            overlayText: "Studio for music posters that turns songs into collectible print-ready polaroids.",
-            description: "Search Spotify tracks, customize templates, colors, fonts, lyrics, and layout, then export high-quality PNGs for gifts, merch drops, and phone covers.",
-            tech: ["Next.js", "Spotify API", "Canvas Export", "Vercel"],
-            actions: [
-                { type: "live", url: "https://polaroify.vercel.app/" },
-                { type: "github", url: "https://github.com/keshav6740/Polaroify" }
             ]
         },
          {
@@ -538,3 +539,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
