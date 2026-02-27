@@ -66,21 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 { type: "github", url: "https://github.com/keshav6740/Content-Based-Image-Retrieval" }
             ]
         },
-        
-        {
-            category: "web",
-            categoryLabel: "SaaS Web Application",
-            title: "Nexus: AI Business Management",
-            image: "nexus.png",
-            alt: "Nexus AI Management",
-            overlayText: "Modern AI-powered SaaS platform to manage business operations and collaboration.",
-            description: "A modern AI-powered SaaS platform for business operations and collaboration.",
-            tech: ["React", "Node.js", "MongoDB", "AI"],
-            actions: [
-                { type: "live", url: "https://nexus-business-ai-management.vercel.app/" },
-                { type: "github", url: "https://github.com/keshav6740/Nexus-Business-AI-Management" }
-            ]
-        },
         {
             category: "ai",
             categoryLabel: "AI / Deep Learning",
@@ -107,6 +92,20 @@ document.addEventListener("DOMContentLoaded", () => {
             actions: [
                 { type: "live", url: "https://crop-yield-prediction-ml-iar3.onrender.com/" },
                 { type: "github", url: "https://github.com/keshav6740/Crop-Yield-Prediction-ML" }
+            ]
+        },
+         {
+            category: "web",
+            categoryLabel: "SaaS Web Application",
+            title: "Nexus: AI Business Management",
+            image: "nexus.png",
+            alt: "Nexus AI Management",
+            overlayText: "Modern AI-powered SaaS platform to manage business operations and collaboration.",
+            description: "A modern AI-powered SaaS platform for business operations and collaboration.",
+            tech: ["React", "Node.js", "MongoDB", "AI"],
+            actions: [
+                { type: "live", url: "https://nexus-business-ai-management.vercel.app/" },
+                { type: "github", url: "https://github.com/keshav6740/Nexus-Business-AI-Management" }
             ]
         },
         {
@@ -539,4 +538,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 
